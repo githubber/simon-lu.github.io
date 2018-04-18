@@ -144,15 +144,15 @@
     </li>
     
     <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Kaggle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
         <a href="javascript:" class="color1">linux</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">Kaggle</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -307,7 +307,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-04-18 11:26:53'>2018-04-04 15:28</time>
+        创建时间:<time class="date" title='更新时间: 2018-04-18 16:09:45'>2018-04-04 15:28</time>
         
     </div>
     <div class="article-meta">
@@ -355,10 +355,10 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h4><p><img src="Stacking.png" alt="Stacking"></p>
-<h4 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h4><p><img src="Bagging.png" alt="Bagging"></p>
+        <h4 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Stacking.png" alt="Stacking"></p>
+<h4 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Bagging.png" alt="Bagging"></p>
 <p>一个复杂的模型常常会有large variace，所以我们会想有几个这样复杂的模型取平均来减少variance 这就要求我们对原始数据进行重新采样，对最后几个模型的得出来的结果采取取均值或者投票的方法。<br>当我们的模型很复杂、容易overfit的时候，Bagging很有效。</p>
-<h4 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h4><p><img src="Random_Forest.png" alt="Random Forest"></p>
+<h4 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Random_Forest.png" alt="Random Forest"></p>
 <p>有放回的抽样生成S个和原始数据集一样的大小数据集，分别记为T1,T2,…Ts,这些数据集合 称之为bootstrap数据集，对于每个Ti生成一个决策树，最终结果通过大多数投票策略来决定</p>
 <p><em>Out-of-bag error:</em><br>对于每一个记录(xi, yi)，都有不包含此记录的boostrap集合，把所有符合的bootstrap集合记为Tk， 所以共有N个这样的字集。 对于构建第k棵树时候没有用到的每条记录，让它们过一遍第k棵树，进而获得一个分类.通过这种方法, 对任何一条记录来说，大概有1/3的树没有用这条记录来构建，因而对这些树可以进行测试集上的数据分类。最终, 假设 类别j 是当记录n是oob时候，获得投票最多的类别，j被错误分类除以总记录数n，就是 oob error estimate.</p>
 <p>那么它为什么重要? Breiman [1996b]在对 bagged 分类器的错误率估计研究中, 给出实证证据显示，out-of-bag 估计 和使用与训练集大小一致的测试集所得到的错误率一样精确. 所以, 使用out-of-bag error 估计可以不在另外建立一个测试集。</p>
@@ -379,7 +379,7 @@
     
     <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
     <p><span>发布时间:</span>2018-04-04, 15:28:00</p>
-    <p><span>最后更新:</span>2018-04-18, 11:26:53</p>
+    <p><span>最后更新:</span>2018-04-18, 16:09:45</p>
     <span>原始链接:</span><a class="post-url" href="/2018/04/04/Ensemble的几种方式介绍/" title="Ensemble的几种方式介绍">http://simon-lu.me/2018/04/04/Ensemble的几种方式介绍/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -459,7 +459,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#linux','#java','#Kaggle','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
