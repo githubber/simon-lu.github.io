@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>K-Means Clustering | Hexo</title>
+  <meta name="keywords" content=" Cluster ">
+  <meta name="description" content="K-Means Clustering | Hexo">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content=".hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Enjoy">
+<meta property="og:url" content="http://simon-lu.me/enjoy/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content=".hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E9%A3%8E%E7%AD%9D.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E6%98%9F%E7%90%83%E5%A4%A7%E6%88%988%EF%BC%9A%E6%9C%80%E5%90%8E%E7%9A%84%E7%BB%9D%E5%9C%B0%E6%AD%A6%E5%A3%AB.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%AF%BB%E6%A2%A6%E7%8E%AF%E6%B8%B8%E8%AE%B0.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%B0%BC%E7%BD%97%E6%B2%B3%E4%B8%8A%E7%9A%84%E6%83%A8%E6%A1%88.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E9%BB%91%E9%95%9C%E7%AC%AC%E5%9B%9B%E5%AD%A3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E6%97%A0%E8%80%BB%E5%AE%B6%E5%BA%AD%E7%AC%AC%E5%85%AB%E5%AD%A3.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%8E%BB%E4%BB%96%2A%E7%9A%84%E4%B8%96%E7%95%8C.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E6%80%AA%E5%A5%87%E7%89%A9%E8%AF%AD2.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%BF%8C%E6%97%A5%E5%BF%AB%E4%B9%90.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/大地惊雷.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/月光男孩.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/阴阳错.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/奇异博士.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/隐藏人物.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/海边的曼彻斯特.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/衰女翻身.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/国家公敌.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/生活多美好.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/伊甸湖.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/致命玩笑.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/饮食男女.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/完美的世界.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/完美陌生人.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/萨利机长.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/夜盗珍妃墓.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/血战钢锯岭.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/王冠.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/雾中回忆.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/辛德勒的名单.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/活着.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/借刀杀人.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/孤儿怨.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/红色.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/我们这一天.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/无名女尸.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/十月的天空.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/小男孩%20.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/贝利叶一家.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/危情十日.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/屏住呼吸.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/西部世界.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/追捕野蛮人.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/律政强人.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/瑞士男.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/泰山归来.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/杀手没有假期.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/鲨滩.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/釜山行.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/冰川时代5：星际碰撞.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/阿尔卑斯山少女海蒂.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/招魂.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/一个叫欧维的男人决定去死.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/罪恶之夜.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/洛奇.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/白夜行.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/心慌方.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/林中小屋.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%86%B7%E5%B1%B1.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%A5%87%E5%B9%BB%E6%A3%AE%E6%9E%97.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E7%8B%AC%E8%87%AA%E7%AD%89%E5%BE%85.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E4%B9%B0%E5%87%B6%E6%8B%8D%E4%BA%BA.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%8D%83%E9%92%A7%E4%B8%80%E5%8F%91.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E6%80%AA%E5%A5%87%E7%89%A9%E8%AF%AD.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="https://img3.doubanio.com/lpic/s3254244.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/战斗民族养成记.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E7%86%94%E7%82%89.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/死侍.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E4%B8%8A%E5%B8%9D%E4%B9%8B%E5%9F%8E.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%8F%91%E6%9D%A1%E6%A9%99%20%282%29.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%9B%9B%E4%B8%AA.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%B0%8F%E8%90%9D%E8%8E%89%E7%9A%84%E7%A5%9E%E7%8C%B4%E5%A4%A7%E5%8F%94.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/两小无猜.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/月亮和六便士.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/献给阿尔吉侬的花束.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/小王子.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/穆赫兰道.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/美国往事.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/卡萨布兰卡.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/好家伙.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/控方证人.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/燃情岁月.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/白日梦想家.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/禁闭岛.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+<meta property="og:image" content="http://7xu9v8.com1.z0.glb.clouddn.com/少年斯派维的奇异旅行.jpg">
+<meta property="og:updated_time" content="2018-04-16T05:19:27.236Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Enjoy">
+<meta name="twitter:description" content=".hexo-image-steam-lazy {display:none;}.hexo-img-stream{width:90%;max-width:1100px;margin:3% auto}div.hexo-img-stream figure{background:#fefefe;box-shadow:0 1px 2px rgba(34,25,25,0.4);margin:0 0.05% 3%">
+<meta name="twitter:image" content="http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link rel="stylesheet" href="/css/hl_theme/atom-light.css">
+
+<link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.css" rel="stylesheet">
+<link href="//cdn.bootcss.com/photoswipe/4.1.2/default-skin/default-skin.min.css" rel="stylesheet">
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js" ></script>
+
+</head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="false">
+</div>
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/" class="avatar_target">
+    <img class="avatar" src="/img/avatar-lu.jpeg" />
+</a>
+<div class="author">
+    <span>John Doe</span>
+</div>
+
+<div class="icon">
+    
+    <a class="rss" title="rss" href="/atom.xml" target="_blank"></a>
+    
+    
+    <a class="github" title="github" href="https://github.com/simon-lu" target="_blank"></a>
+    
+    
+    
+    
+    
+    
+    
+    
+    <a class="email" title="email" href="mailto:wq.lu@outlook.com"></a>
+    
+</div>
+
+
+
+<ul>
+    <li class="all active">全部文章</li>
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+    
+    
+    
+    
+    </div>
+    <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="12">
+
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="back-title-list"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <form onkeydown="if(event.keyCode==13){return false;}">
+        <input class="search" type="text" placeholder="Search..." autocomplete="off"id="local-search-input" >
+        <i class="cross"></i>
+        <span>
+        <label for="tagswitch">Tags:</label>
+        <input id="tagswitch" type="checkbox">
+    </span>
+    </form>
+    <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Ensemble</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">Cluster</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">Logistic Regression</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Kaggle</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">linux</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color5">java</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">git</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">Neural Networks</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color4">Deep Learning</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">books</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">笔试</a>
+    </li>
+    
+    <div class="clearfix"></div>
+</div>
+
+    
+    <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2018/04/04/Ensemble的几种方式介绍/"
+           data-tag="Ensemble"
+           data-author="" >
+            <span class="post-title" title="Ensemble的几种方式介绍">Ensemble的几种方式介绍</span>
+            <span class="post-date" title="2018-04-04 15:28:00">2018/04/04</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/03/24/Java知识点总结/"
+           data-tag="Java"
+           data-author="" >
+            <span class="post-title" title="Java知识点总结">Java知识点总结</span>
+            <span class="post-date" title="2018-03-24 09:38:00">2018/03/24</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/03/23/关于笔试题目的笔记/"
+           data-tag="笔试"
+           data-author="" >
+            <span class="post-title" title="关于笔试题目的笔记">关于笔试题目的笔记</span>
+            <span class="post-date" title="2018-03-23 00:33:00">2018/03/23</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/03/17/git常用命令总结/"
+           data-tag="git"
+           data-author="" >
+            <span class="post-title" title="git常用命令总结">git常用命令总结</span>
+            <span class="post-date" title="2018-03-17 08:50:00">2018/03/17</span>
+        </a>
+        
+        <a  class=""
+           href="/2018/01/15/Ubuntu16.04安装双显卡驱动GT750M/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="Ubuntu16.04安装双显卡驱动GT750M">Ubuntu16.04安装双显卡驱动GT750M</span>
+            <span class="post-date" title="2018-01-15 15:29:00">2018/01/15</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/12/21/Logistic-Regression/"
+           data-tag="Logistic Regression"
+           data-author="" >
+            <span class="post-title" title="Logistic Regression">Logistic Regression</span>
+            <span class="post-date" title="2017-12-21 21:05:21">2017/12/21</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/12/15/Titanic-Maching-Learning-from-Disater/"
+           data-tag="Kaggle"
+           data-author="" >
+            <span class="post-title" title="Titanic:Maching Learning from Disater">Titanic:Maching Learning from Disater</span>
+            <span class="post-date" title="2017-12-15 21:43:48">2017/12/15</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/12/12/《Neural-Networks-and-Deep-Learning》笔记/"
+           data-tag="Neural Networks,Deep Learning"
+           data-author="" >
+            <span class="post-title" title="《Neural Networks and Deep Learning》笔记">《Neural Networks and Deep Learning》笔记</span>
+            <span class="post-date" title="2017-12-12 16:15:49">2017/12/12</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/12/10/K-Means-Clustering/"
+           data-tag="Cluster"
+           data-author="" >
+            <span class="post-title" title="K-Means Clustering">K-Means Clustering</span>
+            <span class="post-date" title="2017-12-10 22:47:34">2017/12/10</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/12/09/《集体编程智慧》读书笔记/"
+           data-tag="books"
+           data-author="" >
+            <span class="post-title" title="《集体编程智慧》读书笔记">《集体编程智慧》读书笔记</span>
+            <span class="post-date" title="2017-12-09 00:08:57">2017/12/09</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/09/12/Ubuntu16-10安装JDK/"
+           data-tag="linux,java"
+           data-author="" >
+            <span class="post-title" title="Ubuntu16.10安装JDK">Ubuntu16.10安装JDK</span>
+            <span class="post-date" title="2017-09-12 22:23:30">2017/09/12</span>
+        </a>
+        
+        <a  class=""
+           href="/2017/08/17/linux文件夹有锁的去除/"
+           data-tag="linux"
+           data-author="" >
+            <span class="post-title" title="linux文件夹有锁的去除">linux文件夹有锁的去除</span>
+            <span class="post-date" title="2017-08-17 12:40:07">2017/08/17</span>
+        </a>
+        
+    </nav>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div class="post">
+    <div class="pjax">
+        <article id="post-K-Means-Clustering" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">K-Means Clustering</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color3">Cluster</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2017-12-25 12:37:58'>2017-12-10 22:47</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>K-Means Clustering是一种聚类方法，也叫K-均值聚类，我们预先告诉算法希望生成的聚类数量，然后算法会根据数据的结构状况来确定聚类的大小。</p>
+<p>K-均值聚类算法首先会随机确定K的中心位置(位于空间中代表聚类中心的点)，然后将各个数据点分配给最临近的中心点，分配完毕后，K个中点会移到分配到该聚类的所有节点的平均位置处，重新开始分配。这个过程会一直重复下去，知道分配过程中不在发生变化为止。这就是K-均值聚类算法。</p>
+<p>K为2时，聚类过程如下所示：<br><img src="http://7xu9v8.com1.z0.glb.clouddn.com/k-mean.jpg" alt="K-Means Clustering" title="K-Means Clustering"></p>
+<ol>
+<li>随机生成2个中心点</li>
+<li>A和B显然分给了上方的中心店，C、D和E分给了下方的中心点</li>
+<li>移动中心点，上方中心点移到A和B的平均位置，下方中心点则移到聚类CDE的平均位置</li>
+<li>重新进行第2步分配，这一次C分给了上方中心点</li>
+<li>移动中心，重新分配，结果不变，结束算法  </li>
+</ol>
+<p>具体的算法实现：</p>
+<pre><code class="python"><span class="function"><span class="keyword">def</span> <span class="title">kcluster</span><span class="params">(rows, distance=pearson, k=<span class="number">4</span>)</span>:</span>
+    <span class="string">"""k均值聚类"""</span>
+    <span class="comment"># 确定每个点/行的最大值和最小值</span>
+    ranges = [(min([row[i] <span class="keyword">for</span> row <span class="keyword">in</span> rows]), max([row[i] <span class="keyword">for</span> row <span class="keyword">in</span> rows])) <span class="keyword">for</span> i <span class="keyword">in</span> range(len(rows[<span class="number">0</span>]))]
+
+    <span class="comment"># 随机创建k个中心点</span>
+    clusters = [[random.random()*(ranges[i][<span class="number">1</span>]-ranges[i][<span class="number">0</span>])+ranges[i][<span class="number">0</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(len(rows[<span class="number">0</span>]))] <span class="keyword">for</span> j <span class="keyword">in</span> range(k)]
+
+    lastmatches = <span class="keyword">None</span>
+    <span class="keyword">for</span> t <span class="keyword">in</span> range(<span class="number">100</span>):
+        <span class="keyword">print</span> <span class="string">'Iteration %d'</span> % t
+        bestmatches = [[] <span class="keyword">for</span> i <span class="keyword">in</span> range(k)]
+
+        <span class="comment"># 在每一行中找离得最近的点</span>
+        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(rows)):
+            row = rows[j]
+            bestmatch=<span class="number">0</span>
+            <span class="keyword">for</span> i <span class="keyword">in</span> range(k):
+                d = distance(clusters[i], row)
+                <span class="keyword">if</span> d &lt; distance(clusters[bestmatch], row):
+                    bestmatch = i
+            bestmatches[bestmatch].append(j)
+
+        <span class="comment"># 如果结果和上次相同,则过程结束</span>
+        <span class="keyword">if</span> bestmatches == lastmatches:
+            <span class="keyword">break</span>
+        lastmatches = bestmatches
+
+        <span class="comment"># 把中心点移到其所有的平均位置处</span>
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):
+            avgs = [<span class="number">0.0</span>]*len(rows[<span class="number">0</span>])
+            <span class="keyword">if</span> len(bestmatches[i]) &gt; <span class="number">0</span>:
+                <span class="keyword">for</span> rowid <span class="keyword">in</span> bestmatches[i]:
+                    <span class="keyword">for</span> m <span class="keyword">in</span> range(len(rows[rowid])):
+                        avgs[m] += rows[rowid][m]
+                <span class="keyword">for</span> j <span class="keyword">in</span> range(len(avgs)):
+                    avgs[j] /= len(bestmatches[i])
+                clusters[i] = avgs
+    <span class="keyword">return</span> bestmatches
+</code></pre>
+<p><em>缺点</em>：由于每次都选用随机的中心点，所以我们得到的结果很大几率可能并不会相同</p>
+<hr>
+<p>参考书籍：<a href="https://book.douban.com/subject/3288908/" target="_blank" rel="noopener">《集体编程智慧》</a></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>K-Means Clustering</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="John Doe">John Doe</a></p>
+    <p><span>发布时间:</span>2017-12-10, 22:47:34</p>
+    <p><span>最后更新:</span>2017-12-25, 12:37:58</p>
+    <span>原始链接:</span><a class="post-url" href="/2017/12/10/K-Means-Clustering/" title="K-Means Clustering">http://simon-lu.me/2017/12/10/K-Means-Clustering/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
+
+
+    
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">©2017 Simonlu</p>
+<p class="footer-entry">Buit with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full"><span class="min "></span></button>
+<button class="post-toc-menu"><span class="post-toc-menu-icons"></span></button>
+<div class="post-toc"><span class="post-toc-title">目录</span>
+    <div class="post-toc-content">
+
+    </div>
+</div>
+<a class="" id="rocket" href="javascript:void(0)"></a>
+    </div>
+</div>
+<div class="acParent"></div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close" href="javascript:void(0)" onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+</body>
+<script src="//cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe.min.js"></script>
+<script src="//cdn.bootcss.com/photoswipe/4.1.2/photoswipe-ui-default.min.js"></script>
+
+<script src="/js/script.js"></script>
+<script>
+    var img_resize = 'photoSwipe';
+    /*作者、标签的自动补全*/
+    $(function () {
+        $('.search').AutoComplete({
+            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'itemHeight': 20,
+            'width': 418
+        }).AutoComplete('show');
+    })
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $(".post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().split('\n').length - 1;
+            var $numbering = $('<ul/>').addClass('pre-numbering').attr("unselectable","on");
+            $(this).addClass('has-numbering')
+                    .parent()
+                    .append($numbering);
+            for(i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+
+        // PhotoSwipe
+        $('article').each(function(i){
+            $(this).find('img').each(function(){
+                if ($(this).closest('figure').hasClass('article-gallery-img')) {
+                    return;
+                }
+                var alt = this.alt;
+                $(this)
+                    .wrap('<figure class="article-gallery-img" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject"></figure>')
+                    .wrap('<a href="' + this.src + '" title="' + alt + '"></a>');
+                $(this).after('<div class="img_alt"><span>' + (alt || '') + '</span></div>');
+            });
+        });
+
+        var pswpElement = document.querySelectorAll('.pswp')[0];
+        if (pswpElement) {
+            var gallerySelector = '.article-gallery, article';
+
+            var initPhotoSwipeFromDOM = function(gallerySelector) {
+
+                // parse slide data (url, title, size ...) from DOM elements
+                // (children of gallerySelector)
+                var parseThumbnailElements = function(el) {
+                    var thumbElements = $(el).find('figure.article-gallery-img').toArray(),
+                        numNodes = thumbElements.length,
+                        items = [],
+                        figureEl,
+                        linkEl,
+                        size,
+                        imgEl,
+                        item;
+
+                    for (var i = 0; i < numNodes; i++) {
+
+                        figureEl = thumbElements[i]; // <figure> element
+
+                        // include only element nodes
+                        if (figureEl.nodeType !== 1) {
+                            continue;
+                        }
+
+                        linkEl = figureEl.children[0]; // <a> element
+                        imgEl = linkEl.children[0]; // <img>
+
+                        size = linkEl.getAttribute('data-size');
+                        size = size && size.split('x');
+
+                        // create slide object
+                        item = {
+                            src: linkEl.getAttribute('href'),
+                            w: size && parseInt(size[0], 10) || imgEl.width,
+                            h: size && parseInt(size[1], 10) || imgEl.height
+                        };
+
+                        if (figureEl.children.length > 1) {
+                            // <figcaption> content
+                            item.title = figureEl.children[1].innerHTML;
+                        }
+
+                        if (linkEl.children.length > 0) {
+                            // <img> thumbnail element, retrieving thumbnail url
+                            item.msrc = linkEl.children[0].getAttribute('src');
+                        }
+
+                        item.el = figureEl; // save link to element for getThumbBoundsFn
+                        items.push(item);
+                    }
+
+                    return items;
+                };
+
+                // find nearest parent element
+                var closest = function closest(el, fn) {
+                    return el && (fn(el) ? el : closest(el.parentNode, fn));
+                };
+
+                // triggers when user clicks on thumbnail
+                var onThumbnailsClick = function(e) {
+                    e = e || window.event;
+
+                    var eTarget = e.target || e.srcElement;
+
+                    // find root element of slide
+                    var clickedListItem = closest(eTarget, function(el) {
+                        return (el.tagName && el.tagName.toUpperCase() === 'FIGURE');
+                    });
+
+                    if (!clickedListItem) {
+                        return;
+                    }
+
+                    if (e.preventDefault) {
+                        e.preventDefault();
+                    } else {
+                        e.returnValue = false;
+                    }
+
+                    // find index of clicked item by looping through all child nodes
+                    // alternatively, you may define index via data- attribute
+                    var clickedGallery = $(clickedListItem).closest(gallerySelector)[0],
+                        childNodes = $(clickedGallery).find('figure.article-gallery-img').toArray(),
+                        numChildNodes = childNodes.length,
+                        nodeIndex = 0,
+                        index;
+
+                    for (var i = 0; i < numChildNodes; i++) {
+                        if (childNodes[i].nodeType !== 1) {
+                            continue;
+                        }
+
+                        if (childNodes[i] === clickedListItem) {
+                            index = nodeIndex;
+                            break;
+                        }
+                        nodeIndex++;
+                    }
+
+
+
+                    if (index >= 0) {
+                        // open PhotoSwipe if valid index found
+                        openPhotoSwipe(index, clickedGallery);
+                    }
+                    return false;
+                };
+
+                // parse picture index and gallery index from URL (#&pid=1&gid=2)
+                var photoswipeParseHash = function() {
+                    var hash = window.location.hash.substring(1),
+                        params = {};
+
+                    if (hash.length < 5) {
+                        return params;
+                    }
+
+                    var vars = hash.split('&');
+                    for (var i = 0; i < vars.length; i++) {
+                        if (!vars[i]) {
+                            continue;
+                        }
+                        var pair = vars[i].split('=');
+                        if (pair.length < 2) {
+                            continue;
+                        }
+                        params[pair[0]] = pair[1];
+                    }
+
+                    if (params.gid) {
+                        params.gid = parseInt(params.gid, 10);
+                    }
+
+                    return params;
+                };
+
+                var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
+                    var pswpElement = document.querySelectorAll('.pswp')[0],
+                        gallery,
+                        options,
+                        items;
+
+                    items = parseThumbnailElements(galleryElement);
+
+                    // define options (if needed)
+                    options = {
+
+                        // define gallery index (for URL)
+                        galleryUID: galleryElement.getAttribute('data-pswp-uid'),
+
+                        getThumbBoundsFn: function(index) {
+                            // See Options -> getThumbBoundsFn section of documentation for more info
+                            var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                                pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                                rect = thumbnail.getBoundingClientRect();
+
+                            return {
+                                x: rect.left,
+                                y: rect.top + pageYScroll,
+                                w: rect.width
+                            };
+                        }
+                    };
+
+                    // PhotoSwipe opened from URL
+                    if (fromURL) {
+                        if (options.galleryPIDs) {
+                            // parse real index when custom PIDs are used
+                            // http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+                            for (var j = 0; j < items.length; j++) {
+                                if (items[j].pid == index) {
+                                    options.index = j;
+                                    break;
+                                }
+                            }
+                        } else {
+                            // in URL indexes start from 1
+                            options.index = parseInt(index, 10) - 1;
+                        }
+                    } else {
+                        options.index = parseInt(index, 10);
+                    }
+
+                    // exit if index not found
+                    if (isNaN(options.index)) {
+                        return;
+                    }
+
+                    if (disableAnimation) {
+                        options.showAnimationDuration = 0;
+                    }
+
+                    // Pass data to PhotoSwipe and initialize it
+                    gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, options);
+
+                    gallery.listen('imageLoadComplete', function(index, item) {
+                        var linkEl = item.el.children[0];
+                        var img = item.container.children[0];
+                        if (!linkEl.getAttribute('data-size')) {
+                            linkEl.setAttribute('data-size', img.naturalWidth + 'x' + img.naturalHeight);
+                            item.w = img.naturalWidth;
+                            item.h = img.naturalHeight;
+                            gallery.invalidateCurrItems();
+                            gallery.updateSize(true);
+                        }
+                    });
+
+                    gallery.init();
+                };
+
+                // loop through all gallery elements and bind events
+                var galleryElements = document.querySelectorAll(gallerySelector);
+
+                for (var i = 0, l = galleryElements.length; i < l; i++) {
+                    galleryElements[i].setAttribute('data-pswp-uid', i + 1);
+                    galleryElements[i].onclick = onThumbnailsClick;
+                }
+
+                // Parse URL and open gallery if it contains #&pid=3&gid=1
+                var hashData = photoswipeParseHash();
+                if (hashData.pid && hashData.gid) {
+                    openPhotoSwipe(hashData.pid, galleryElements[hashData.gid - 1], true, true);
+                }
+            };
+
+            // execute above function
+            initPhotoSwipeFromDOM(gallerySelector);
+        }
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 2px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    .pre-numbering{
+        margin: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+    .post .pjax article .article-entry>ol, .post .pjax article .article-entry>ul, .post .pjax article>ol, .post .pjax article>ul{
+        border: #e2dede solid 2px;
+        border-radius: 10px;
+        padding: 10px 32px 10px 56px;
+    }
+    .post .pjax article .article-entry li>ol, .post .pjax article .article-entry li>ul,.post .pjax article li>ol, .post .pjax article li>ul{
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    .post .pjax article .article-entry>ol>li, .post .pjax article .article-entry>ul>li,.post .pjax article>ol>li, .post .pjax article>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    .post .pjax article .article-entry li>ol>li, .post .pjax article .article-entry li>ul>li,.post .pjax article li>ol>li, .post .pjax article li>ul>li{
+        margin-bottom: auto;
+        margin-left: auto;
+    }
+    
+
+    /*引用块样式*/
+    
+    .post .pjax article blockquote {
+        padding: 10px 20px;
+        background-color: white;
+        border: none;
+        border-left: 4px solid #42b983;
+        border-right: 4px solid #42b983;
+        border-radius: 10px;
+    }
+    
+
+    /*文章列表背景图*/
+    
+</style>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+         It's a separate element, as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+        <!-- don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+</html>
