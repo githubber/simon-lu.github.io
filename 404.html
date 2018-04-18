@@ -132,19 +132,19 @@
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color5">Java</a>
-    </li>
-    
-    <li class="article-tag-list-item">
         <a href="javascript:" class="color3">Cluster</a>
     </li>
     
     <li class="article-tag-list-item">
-        <a href="javascript:" class="color2">Kaggle</a>
+        <a href="javascript:" class="color5">Java</a>
     </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color5">Logistic Regression</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color2">Kaggle</a>
     </li>
     
     <li class="article-tag-list-item">
@@ -317,6 +317,17 @@
         </span>
         
         
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
     </div>
     
     <div class="toc-ref">
@@ -348,6 +359,26 @@
 </p>
 
 
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="/css/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '5ca9cdab246ecf143753',
+            clientSecret: 'c01ebb3e9ff126a2bb9242d84ad5f12dd7bab82e',
+            repo: 'simon-lu.github.io',
+            owner: 'simon-lu',
+            admin: ['simon-lu'],
+            id: location.pathname,
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
 
 
 
@@ -401,7 +432,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Ensemble','#Java','#Cluster','#Kaggle','#Logistic Regression','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'data': ['#Ensemble','#Cluster','#Java','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
