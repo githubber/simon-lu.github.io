@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>lu&#39;s blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="lu&#39;s blog">
+  <title>C语言常考知识点 | lu&#39;s blog</title>
+  <meta name="keywords" content=" C/C++ , 面试 ">
+  <meta name="description" content="C语言常考知识点 | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
@@ -305,17 +305,27 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="404-undefined" class="article article-type-404" itemscope itemprop="blogPost">
+        <article id="post-C语言常考知识点" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">C语言常考知识点</h1>
     
     <div class="article-meta">
         
         
         
         
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">C/C++</a>
+            
+            <a href="javascript:" class="color3">面试</a>
+            
+        </span>
+        
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2017-12-25 10:40:21'>2018-04-18 14:28</time>
+        创建时间:<time class="date" title='更新时间: 2018-04-21 19:47:19'>2018-04-20 19:49</time>
         
     </div>
     <div class="article-meta">
@@ -348,7 +358,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-define和const的区别"><span class="toc-text">1.#define和const的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-text">2.</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -363,7 +373,13 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h4 id="1-define和const的区别"><a href="#1-define和const的区别" class="headerlink" title="1.#define和const的区别"></a>1.#define和const的区别</h4><ol>
+<li>编译器对二者的处理方式不一样<br>define实在预编译处理阶段直接进行替换，而const常量实在编译运行阶段才会使用  </li>
+<li>define是宏定义没有类型，而const则有具体的类型；define不进行类型安全检查但const则要进行类型检查</li>
+<li>define–不分配内存，给出的是立即数，有多少次使用就进行多少次替换，在内存中会有多个拷贝，消耗内存大；const – 在静态存储区中分配空间，在程序运行过程中内存中只有一个拷贝　　</li>
+<li>在编译时，编译器通常不为const常量分配存储空间，而是将它们保存在符号表中，这使得它成为一个编译期间的常量，没有了存储与读内存的操作，使得它的效率也很高；宏替换只作替换，不做计算，不做表达式求解。</li>
+</ol>
+<h4 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h4>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
     </div>
@@ -374,6 +390,18 @@
     <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
 </p>
 
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>C语言常考知识点</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
+    <p><span>发布时间:</span>2018-04-20, 19:49:56</p>
+    <p><span>最后更新:</span>2018-04-21, 19:47:19</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/04/20/C语言常考知识点/" title="C语言常考知识点">http://simon-lu.me/2018/04/20/C语言常考知识点/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
 
 
     <div id="comments"></div>
@@ -387,7 +415,7 @@
             repo: 'simon-lu.github.io',
             owner: 'simon-lu',
             admin: ['simon-lu'],
-            id: 'Wed Apr 18 2018 14:28:05 GMT+0800',
+            id: 'Fri Apr 20 2018 19:49:56 GMT+0800',
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)

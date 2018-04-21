@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>linux文件夹有锁的去除 | Hexo</title>
+  <title>linux文件夹有锁的去除 | lu&#39;s blog</title>
   <meta name="keywords" content=" linux ">
-  <meta name="description" content="linux文件夹有锁的去除 | Hexo">
+  <meta name="description" content="linux文件夹有锁的去除 | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="lu&#39;s blog">
 <meta property="og:url" content="http://simon-lu.me/404.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="lu&#39;s blog">
 <meta property="og:description" content="你来到了没有知识的荒原 :(">
 <meta property="og:updated_time" content="2017-12-25T02:40:21.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="lu&#39;s blog">
 <meta name="twitter:description" content="你来到了没有知识的荒原 :(">
 
 
@@ -95,7 +95,7 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="12">
+<input type="hidden" id="yelog_site_posts_number" value="13">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -126,6 +126,14 @@
     </span>
     </form>
     <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">C/C++</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">Ensemble</a>
@@ -180,6 +188,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2018/04/20/C语言常考知识点/"
+           data-tag="C/C++,面试"
+           data-author="" >
+            <span class="post-title" title="C语言常考知识点">C语言常考知识点</span>
+            <span class="post-date" title="2018-04-20 19:49:56">2018/04/20</span>
+        </a>
         
         <a  class=""
            href="/2018/04/04/Ensemble的几种方式介绍/"
@@ -355,8 +371,12 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前两天把hexo从win迁移到linux上来,一方面是为了让自己多在linux环境里来学习编程,另一方面自己也好久没写过博客了.在安装hexo的时候自己可能犯了错误,导致init生成的文件夹每次都需要管理员的权限才能打开,这对于我每次修改文件十分不方便,于是乎就想了解linux上用户组上的问题.<br><a id="more"></a><br>改变文件上的组用户,我在网上找到了此命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown 用户名 文件名</span><br></pre></td></tr></table></figure></p>
-<p>但是这样只能给你改变文件夹的Group,里面的文件或者文件夹任然没有改变,所以我们要<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo chown 用户名 文件名 -R</span><br></pre></td></tr></table></figure></p>
+        <p>前两天把hexo从win迁移到linux上来,一方面是为了让自己多在linux环境里来学习编程,另一方面自己也好久没写过博客了.在安装hexo的时候自己可能犯了错误,导致init生成的文件夹每次都需要管理员的权限才能打开,这对于我每次修改文件十分不方便,于是乎就想了解linux上用户组上的问题.<br><a id="more"></a><br>改变文件上的组用户,我在网上找到了此命令</p>
+<pre><code class="bash">$ sudo chown 用户名 文件名
+</code></pre>
+<p>但是这样只能给你改变文件夹的Group,里面的文件或者文件夹任然没有改变,所以我们要</p>
+<pre><code class="bash">$ sudo chown 用户名 文件名 -R
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
@@ -454,7 +474,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'data': ['#C/C++','#面试','#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

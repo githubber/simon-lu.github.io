@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Java知识点总结 | Hexo</title>
+  <title>Java知识点总结 | lu&#39;s blog</title>
   <meta name="keywords" content=" Java ">
-  <meta name="description" content="Java知识点总结 | Hexo">
+  <meta name="description" content="Java知识点总结 | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="lu&#39;s blog">
 <meta property="og:url" content="http://simon-lu.me/404.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="lu&#39;s blog">
 <meta property="og:description" content="你来到了没有知识的荒原 :(">
 <meta property="og:updated_time" content="2017-12-25T02:40:21.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="lu&#39;s blog">
 <meta name="twitter:description" content="你来到了没有知识的荒原 :(">
 
 
@@ -95,7 +95,7 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="12">
+<input type="hidden" id="yelog_site_posts_number" value="13">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -126,6 +126,14 @@
     </span>
     </form>
     <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">C/C++</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">Ensemble</a>
@@ -180,6 +188,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2018/04/20/C语言常考知识点/"
+           data-tag="C/C++,面试"
+           data-author="" >
+            <span class="post-title" title="C语言常考知识点">C语言常考知识点</span>
+            <span class="post-date" title="2018-04-20 19:49:56">2018/04/20</span>
+        </a>
         
         <a  class=""
            href="/2018/04/04/Ensemble的几种方式介绍/"
@@ -307,7 +323,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-04-18 14:32:58'>2018-03-24 09:38</time>
+        创建时间:<time class="date" title='更新时间: 2018-04-20 14:48:53'>2018-03-24 09:38</time>
         
     </div>
     <div class="article-meta">
@@ -340,7 +356,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Integer和int区别"><span class="toc-text">1.Integer和int区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-饿汉和懒汉单例模式"><span class="toc-text">2.饿汉和懒汉单例模式</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Integer和int区别"><span class="toc-text">1.Integer和int区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-饿汉和懒汉单例模式"><span class="toc-text">2.饿汉和懒汉单例模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3"><span class="toc-text">3.</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -363,9 +379,33 @@
 </ol>
 <h4 id="2-饿汉和懒汉单例模式"><a href="#2-饿汉和懒汉单例模式" class="headerlink" title="2.饿汉和懒汉单例模式"></a>2.饿汉和懒汉单例模式</h4><p>单例模式指的是一个类，在一个JVM里，只有一个实例。　　</p>
 <p>饿汉式单例模式：GiantDragon 提供了一个public static的getInstance方法，外部调用者通过该方法获取对象，而且每次获取的都是同一个对象，从而达到单例的效果。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GiantDragon</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 通过私有构造方法，使得该类无法在外部通过new 来进行实例化</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GiantDragon</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="comment">// 准备一个类属性，指向实例化对象。由于是类属性，所以只有一个</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> GiantDragon instance = <span class="keyword">new</span> GiantGragon();</span><br><span class="line">    <span class="comment">// public static 方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GiantDragon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class GiantDragon {
+    // 通过私有构造方法，使得该类无法在外部通过new 来进行实例化
+    private GiantDragon() {}
+    // 准备一个类属性，指向实例化对象。由于是类属性，所以只有一个
+    private static GiantDragon instance = new GiantGragon();
+    // public static 方法
+    public static GiantDragon getInstance() {
+        return instance;
+    }
+}
+</code></pre>
 <p>懒汉式单例模式：只有在调用getInstance的时候，才会创建实例。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GiantDragon</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 通过私有构造方法，使得该类无法在外部通过new 来进行实例化</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">GiantDragon</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">    <span class="comment">// 准备一个类属性，指向实例化对象。由于是类属性，所以只有一个</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> GiantDragon instance;</span><br><span class="line">    <span class="comment">// public static 方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> GiantDragon <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</span><br><span class="line">            instance = <span class="keyword">new</span> GiantDragon();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="java">public class GiantDragon {
+    // 通过私有构造方法，使得该类无法在外部通过new 来进行实例化
+    private GiantDragon() {}
+    // 准备一个类属性，指向实例化对象。由于是类属性，所以只有一个
+    private static GiantDragon instance;
+    // public static 方法
+    public static GiantDragon getInstance() {
+        if (null == instance) {
+            instance = new GiantDragon();
+        }
+        return instance;
+    }
+}
+</code></pre>
+<h4 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h4>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
     </div>
@@ -382,7 +422,7 @@
     
     <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
     <p><span>发布时间:</span>2018-03-24, 09:38:00</p>
-    <p><span>最后更新:</span>2018-04-18, 14:32:58</p>
+    <p><span>最后更新:</span>2018-04-20, 14:48:53</p>
     <span>原始链接:</span><a class="post-url" href="/2018/03/24/Java知识点总结/" title="Java知识点总结">http://simon-lu.me/2018/03/24/Java知识点总结/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -462,7 +502,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'data': ['#C/C++','#面试','#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');

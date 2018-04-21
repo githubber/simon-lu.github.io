@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ubuntu16.10安装JDK | Hexo</title>
+  <title>Ubuntu16.10安装JDK | lu&#39;s blog</title>
   <meta name="keywords" content=" linux , java ">
-  <meta name="description" content="Ubuntu16.10安装JDK | Hexo">
+  <meta name="description" content="Ubuntu16.10安装JDK | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="lu&#39;s blog">
 <meta property="og:url" content="http://simon-lu.me/404.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="lu&#39;s blog">
 <meta property="og:description" content="你来到了没有知识的荒原 :(">
 <meta property="og:updated_time" content="2017-12-25T02:40:21.429Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="lu&#39;s blog">
 <meta name="twitter:description" content="你来到了没有知识的荒原 :(">
 
 
@@ -95,7 +95,7 @@
     </div>
     <div><a style="border-right: 1px solid #fff; width: 49%"  class="about site_url"  href="/about">关于</a><a style="width: 50%"  class="friends">友链</a></div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="12">
+<input type="hidden" id="yelog_site_posts_number" value="13">
 
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
@@ -126,6 +126,14 @@
     </span>
     </form>
     <div class="tags-list">
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color1">C/C++</a>
+    </li>
+    
+    <li class="article-tag-list-item">
+        <a href="javascript:" class="color3">面试</a>
+    </li>
     
     <li class="article-tag-list-item">
         <a href="javascript:" class="color4">Ensemble</a>
@@ -180,6 +188,14 @@
 
     
     <nav id="title-list-nav">
+        
+        <a  class=""
+           href="/2018/04/20/C语言常考知识点/"
+           data-tag="C/C++,面试"
+           data-author="" >
+            <span class="post-title" title="C语言常考知识点">C语言常考知识点</span>
+            <span class="post-date" title="2018-04-20 19:49:56">2018/04/20</span>
+        </a>
         
         <a  class=""
            href="/2018/04/04/Ensemble的几种方式介绍/"
@@ -359,18 +375,52 @@
       
         <h1 id="Ubuntu16-10安装JDK"><a href="#Ubuntu16-10安装JDK" class="headerlink" title="Ubuntu16.10安装JDK"></a>Ubuntu16.10安装JDK</h1><p>准备工作: <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">官方下载</a></p>
 <p>下载完成之后就可以开始了</p>
-<h2 id="1-首先创建JDK的安装目录"><a href="#1-首先创建JDK的安装目录" class="headerlink" title="1.首先创建JDK的安装目录"></a>1.首先创建JDK的安装目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /usr/java</span><br></pre></td></tr></table></figure>
-<h2 id="2-解压文件"><a href="#2-解压文件" class="headerlink" title="2.解压文件"></a>2.解压文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo tar zxvf jdk-8u90-linux-x64.tar.gz -C /usr/java/</span><br></pre></td></tr></table></figure>
-<h2 id="3-修改名称-便于配置环境变量"><a href="#3-修改名称-便于配置环境变量" class="headerlink" title="3.修改名称,便于配置环境变量"></a>3.修改名称,便于配置环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mv jdk-8u90-linux-x64 jdk</span><br></pre></td></tr></table></figure>
-<h2 id="4-配置系统环境变量"><a href="#4-配置系统环境变量" class="headerlink" title="4.配置系统环境变量"></a>4.配置系统环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/environment</span><br></pre></td></tr></table></figure>
+<h2 id="1-首先创建JDK的安装目录"><a href="#1-首先创建JDK的安装目录" class="headerlink" title="1.首先创建JDK的安装目录"></a>1.首先创建JDK的安装目录</h2><pre><code class="bash">sudo mkdir /usr/java
+</code></pre>
+<h2 id="2-解压文件"><a href="#2-解压文件" class="headerlink" title="2.解压文件"></a>2.解压文件</h2><pre><code class="bash">sudo tar zxvf jdk-8u90-linux-x64.tar.gz -C /usr/java/
+</code></pre>
+<h2 id="3-修改名称-便于配置环境变量"><a href="#3-修改名称-便于配置环境变量" class="headerlink" title="3.修改名称,便于配置环境变量"></a>3.修改名称,便于配置环境变量</h2><pre><code class="bash">sudo mv jdk-8u90-linux-x64 jdk
+</code></pre>
+<h2 id="4-配置系统环境变量"><a href="#4-配置系统环境变量" class="headerlink" title="4.配置系统环境变量"></a>4.配置系统环境变量</h2><pre><code class="bash">sudo gedit /etc/environment
+</code></pre>
 <p>并且我们复制以下内容进去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin&quot;</span><br><span class="line"></span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=/usr/java/jdk</span><br><span class="line"></span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br></pre></td></tr></table></figure>
-<h2 id="5-配置所有用户的环境变量"><a href="#5-配置所有用户的环境变量" class="headerlink" title="5.配置所有用户的环境变量"></a>5.配置所有用户的环境变量</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/profile</span><br></pre></td></tr></table></figure>
+<pre><code class="text">PATH=&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$JAVA_HOME/bin&quot;
+
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+
+export JAVA_HOME=/usr/java/jdk
+
+export JRE_HOME=${JAVA_HOME}/jre
+</code></pre>
+<h2 id="5-配置所有用户的环境变量"><a href="#5-配置所有用户的环境变量" class="headerlink" title="5.配置所有用户的环境变量"></a>5.配置所有用户的环境变量</h2><pre><code class="bash">sudo gedit /etc/profile
+</code></pre>
 <p>写入以下内容  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#set Java environment</span><br><span class="line"></span><br><span class="line">JAVA_HOME=/usr/java/jdk</span><br><span class="line"></span><br><span class="line">export JRE_HOME=/usr/java/jdk/jre</span><br><span class="line"></span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH</span><br><span class="line"></span><br><span class="line">export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH</span><br></pre></td></tr></table></figure>
-<h2 id="6-设置默认JDK"><a href="#6-设置默认JDK" class="headerlink" title="6.设置默认JDK"></a>6.设置默认JDK</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install <span class="string">"/usr/bin/java"</span> <span class="string">"java"</span> <span class="string">"/usr/java/jdk/bin/java"</span> 300</span><br><span class="line"></span><br><span class="line">sudo update-alternatives --install <span class="string">"/usr/bin/javac"</span> <span class="string">"javac"</span> <span class="string">"/usr/java/jdk/bin/javac"</span> 300</span><br><span class="line"></span><br><span class="line">sudo update-alternatives --install <span class="string">"/usr/bin/javaws"</span> <span class="string">"javaws"</span> <span class="string">"/usr/java/jdk/bin/javaws"</span> 300</span><br></pre></td></tr></table></figure>
-<p>Well Done!<br>可以检查是否安装成功<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></p>
-<p>显示结果为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">java version <span class="string">"1.8.0_91"</span></span><br><span class="line"></span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_91-b14)</span><br><span class="line"></span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)</span><br></pre></td></tr></table></figure></p>
+<pre><code class="text">#set Java environment
+
+JAVA_HOME=/usr/java/jdk
+
+export JRE_HOME=/usr/java/jdk/jre
+
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib:$CLASSPATH
+
+export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
+</code></pre>
+<h2 id="6-设置默认JDK"><a href="#6-设置默认JDK" class="headerlink" title="6.设置默认JDK"></a>6.设置默认JDK</h2><pre><code class="bash">sudo update-alternatives --install &quot;/usr/bin/java&quot; &quot;java&quot; &quot;/usr/java/jdk/bin/java&quot; 300
+
+sudo update-alternatives --install &quot;/usr/bin/javac&quot; &quot;javac&quot; &quot;/usr/java/jdk/bin/javac&quot; 300
+
+sudo update-alternatives --install &quot;/usr/bin/javaws&quot; &quot;javaws&quot; &quot;/usr/java/jdk/bin/javaws&quot; 300
+</code></pre>
+<p>Well Done!<br>可以检查是否安装成功  </p>
+<pre><code class="bash">java -version
+</code></pre>
+<p>显示结果为  </p>
+<pre><code class="bash">java version &quot;1.8.0_91&quot;
+
+Java(TM) SE Runtime Environment (build 1.8.0_91-b14)
+
+Java HotSpot(TM) 64-Bit Server VM (build 25.91-b14, mixed mode)
+</code></pre>
 <p>参考<a href="http://www.jianshu.com/p/8712cf20a5c9" target="_blank" rel="noopener">原作者</a></p>
 
       
@@ -469,7 +519,7 @@
     /*作者、标签的自动补全*/
     $(function () {
         $('.search').AutoComplete({
-            'data': ['#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
+            'data': ['#C/C++','#面试','#Ensemble','#Java','#Cluster','#Logistic Regression','#Kaggle','#linux','#java','#git','#Neural Networks','#Deep Learning','#books','#笔试',],
             'itemHeight': 20,
             'width': 418
         }).AutoComplete('show');
