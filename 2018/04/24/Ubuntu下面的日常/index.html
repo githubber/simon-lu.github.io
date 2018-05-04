@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>《集体编程智慧》读书笔记 | lu&#39;s blog</title>
-  <meta name="keywords" content=" books ">
-  <meta name="description" content="《集体编程智慧》读书笔记 | lu&#39;s blog">
+  <title>Ubuntu下面的日常 | lu&#39;s blog</title>
+  <meta name="keywords" content=" linux ">
+  <meta name="description" content="Ubuntu下面的日常 | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
@@ -313,9 +313,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-《集体编程智慧》读书笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-Ubuntu下面的日常" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">《集体编程智慧》读书笔记</h1>
+        <h1 class="article-title">Ubuntu下面的日常</h1>
     
     <div class="article-meta">
         
@@ -324,14 +324,14 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color1">books</a>
+            <a href="javascript:" class="color1">linux</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2017-12-25 12:35:24'>2017-12-09 00:08</time>
+        创建时间:<time class="date" title='更新时间: 2018-04-24 16:39:52'>2018-04-24 16:32</time>
         
     </div>
     <div class="article-meta">
@@ -379,9 +379,19 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>第二章 提供推荐<br><img src="http://7xu9v8.com1.z0.glb.clouddn.com/2.%E6%8F%90%E4%BE%9B%E6%8E%A8%E8%8D%90.png" alt="提供推荐" title="提供推荐"></p>
-<hr>
-<p>第三章 发现群组<br><img src="http://7xu9v8.com1.z0.glb.clouddn.com/%E5%8F%91%E7%8E%B0%E7%BE%A4%E7%BB%84.png" alt="发现群组" title="发现群组"></p>
+        <p>更新了pycharm到2018.1版本，但是任务栏的图标仍然是2017版本的，于是删除了2017版本，重新创建了一个图标</p>
+<pre><code class="bash">sudo vi /usr/share/applications/pycharm.desktop
+</code></pre>
+<p>填写以下的内容：</p>
+<pre><code class="bash">[Desktop Entry]
+Type=Application
+Name=Pycharm
+Comment=pycharm Client
+Exec=sh /home/liaohuiqiang/download/pycharm-community-2017.1.4/bin/pycharm.sh
+Icon=/home/liaohuiqiang/download/pycharm-community-2017.1.4/bin/pycharm.png
+Terminal=false
+Categories=Application;
+</code></pre>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
@@ -395,12 +405,12 @@
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>《集体编程智慧》读书笔记</p>
+    <p><span>文章标题:</span>Ubuntu下面的日常</p>
     
     <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
-    <p><span>发布时间:</span>2017-12-09, 00:08:57</p>
-    <p><span>最后更新:</span>2017-12-25, 12:35:24</p>
-    <span>原始链接:</span><a class="post-url" href="/2017/12/09/《集体编程智慧》读书笔记/" title="《集体编程智慧》读书笔记">http://simon-lu.me/2017/12/09/《集体编程智慧》读书笔记/</a>
+    <p><span>发布时间:</span>2018-04-24, 16:32:24</p>
+    <p><span>最后更新:</span>2018-04-24, 16:39:52</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/04/24/Ubuntu下面的日常/" title="Ubuntu下面的日常">http://simon-lu.me/2018/04/24/Ubuntu下面的日常/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -418,7 +428,7 @@
             repo: 'simon-lu.github.io',
             owner: 'simon-lu',
             admin: ['simon-lu'],
-            id: 'Sat Dec 09 2017 00:08:57 GMT+0800',
+            id: 'Tue Apr 24 2018 16:32:24 GMT+0800',
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)
