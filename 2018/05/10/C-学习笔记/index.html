@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>lu&#39;s blog</title>
-  <meta name="keywords" content="">
-  <meta name="description" content="lu&#39;s blog">
+  <title>C++学习笔记(上) | lu&#39;s blog</title>
+  <meta name="keywords" content=" C/C++ ">
+  <meta name="description" content="C++学习笔记(上) | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
@@ -49,7 +49,7 @@
   <input class="theme_preload_comment" value="false">
 </div>
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/" class="avatar_target">
     <img class="avatar" src="/img/avatar-lu.jpeg" />
@@ -321,10 +321,58 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-C-学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#对博客的理解"><span class="toc-text">对博客的理解</span></a></li></ol></li></ol>
+        <h1 class="article-title">C++学习笔记(上)</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        
+        <span class="tag">
+            
+            <a href="javascript:" class="color1">C/C++</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+        创建时间:<time class="date" title='更新时间: 2018-05-11 23:11:03'>2018-05-10 14:21</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读:<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#头文件与类"><span class="toc-text">头文件与类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参数传递和结果返回"><span class="toc-text">参数传递和结果返回</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Class的经典分类和Big-Three"><span class="toc-text">Class的经典分类和Big Three</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#堆-heap-、栈-stack-和内存管理"><span class="toc-text">堆(heap)、栈(stack)和内存管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类模板，函数模板以及其他"><span class="toc-text">类模板，函数模板以及其他</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合与继承"><span class="toc-text">组合与继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#委托-Delegation-相关设计"><span class="toc-text">委托(Delegation)相关设计</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -337,22 +385,214 @@
     }
 </style>
 </div>
-            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1><h2 id="对博客的理解"><a href="#对博客的理解" class="headerlink" title="对博客的理解"></a>对博客的理解</h2><p>喜欢写Blog的人，会经历三个阶段。</p>
-<blockquote>
-<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
-<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
-<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>推荐书籍<br><a href="">《C++ Primer》</a><br><a href="">《Effective C++》</a>  </p>
 </blockquote>
-<p>我们每个人的在网络上产生的数据越来越多，这些信息是我们在互联网上存在过的痕迹，值得我们认真对待。但是它们被分散分布在各个网站上。很多时候我们很难将它们聚合在一起，而且各个网站的信息排布方式也没有办法自由控制，所以我们需要一个可以由自己主宰的空间——博客。</p>
-<p>通过博客，我们可以记录自己的生活和成长的轨迹。它不像 Twitter 那样碎片化，也不像 Facebook 那样关系化，它是私人的空间。</p>
+<h3 id="头文件与类"><a href="#头文件与类" class="headerlink" title="头文件与类"></a>头文件与类</h3><p>Header的防卫式声明：<br>以<em>complex.h</em>为例  </p>
+<pre><code class="c++">#ifndef __COMPLEX__
+#define __COMPLEX__
+...
+...
+#endif
+</code></pre>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><p>尽量使用初始列写法：  </p>
+<pre><code class="c++">class complex {
+public :
+    complex(double r = 0, double i = 0) : re(r), im(i) {}
+private:
+    double re, im;
+};
+</code></pre>
+<p>不带pointer的class，一般不需要析构函数<br>函数overloading，函数编译后的实际内容是不一样的</p>
+<h3 id="参数传递和结果返回"><a href="#参数传递和结果返回" class="headerlink" title="参数传递和结果返回"></a>参数传递和结果返回</h3><p>constructor一般放public，可以被外界创建对象，但也有特殊情况是放private<br>比如Singleton设计模式  </p>
+<pre><code class="c++">class A {
+public:
+    static A&amp; getInstance();
+    setu() {...};
+private:
+    A();
+    A(const A&amp; rhs);
+};
+</code></pre>
+<p><em>不会改变class里内容的函数加上const</em>,修饰real  </p>
+<pre><code class="c++">double real() const { return re; }
+</code></pre>
+<pre><code class="c++">const complex c1(2,1); // 上面函数要是没写const,会出错
+cout &lt;&lt; c1.real();
+</code></pre>
+<p>传递参数：  </p>
+<ol>
+<li>pass by value 如果传递的东西太大，不太适合  </li>
+<li>pass by reference  </li>
+<li>pass by reference to const  </li>
+</ol>
+<p>尽量使用pass by reference, to const 表示不希望被修改</p>
+<p>返回传递：  </p>
+<ol>
+<li>return by value  </li>
+<li>return by reference  </li>
+<li>return by reference to const </li>
+</ol>
+<p>什么情况用pass by value? 什么情况用pass by reference?<br>比如有c1, c2两个对象， c1 += c2, 就是把c2加到c1上，结果是放到c1里的使用pass by reference*和和和热snnnn和return没的和<br>但是如果是c1+c2, 两个数的结果是放到哪里呢？是要创建一个空间来放结果的话，就使用pass by value  </p>
+<pre><code class="c++">// return complex,而不是complex&amp;，新创建的object,离开函数就会死亡,所以不能return reference
+// 临时对象
+inline complex operator + (const complex&amp; x, const complex&amp; y) {
+    return complex(real(x) + real(y), imag(x) + imag(y));
+}
+</code></pre>
+<p>相同class的各个对象互为friends(友元)  </p>
+<pre><code class="c++">public:
+    int func(const complex&amp; param) {
+        return param.re + param.im;
+    }
 
-        </article>
-        
-        <p>
-            <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
+complex c1(2, 1);
+complex c2;
+c2.func(c1); // 可以获取private的内容，互为friends
+</code></pre>
+<p>operator overloading, 非成员函数</p>
+<pre><code class="c++">// ostream&amp; os前面不能加const
+ostream&amp; operator &lt;&lt; (ostream&amp; os, const complex&amp; x) {
+    return os &lt;&lt; &#39;(&#39; &lt;&lt; real(x) &lt;&lt; &#39;,&#39; &lt;&lt; imag(x) &lt;&lt; &#39;)&#39;;
+}
+</code></pre>
+<p><em>ERROR</em> : ‘ostream’ does not a type<br>io库的都在std中, 使用前要声明一下，using std::ostream;</p>
+<h3 id="Class的经典分类和Big-Three"><a href="#Class的经典分类和Big-Three" class="headerlink" title="Class的经典分类和Big Three"></a>Class的经典分类和Big Three</h3><ol>
+<li>class without pointer member(s)<br><em>complex</em></li>
+<li>class with pointer member(s)<br><em>string</em></li>
+</ol>
+<p>Big Three: 三个特殊函数<br>拷贝构造，拷贝复制，析构  </p>
+<pre><code class="c++">class String {
+private:
+    char* m_data;
+public:
+    String(const char* cstr = 0);
+    String(const String&amp; str);
+    String&amp; operator = (const String&amp; str);
+    ~String();
+    char* get_c_str() const { return m_data;}
+}
+</code></pre>
+<p>class with pointer member必须要有<em>copy ctor</em>和<em>copy op=</em>,不然会有memory leak</p>
+<h3 id="堆-heap-、栈-stack-和内存管理"><a href="#堆-heap-、栈-stack-和内存管理" class="headerlink" title="堆(heap)、栈(stack)和内存管理"></a>堆(heap)、栈(stack)和内存管理</h3><p> stack,是存在某一作用域的一块内存空间，函数体内声明的任何变量，其所使用的内存块都来stack<br> heap，系统提供的一块global内存空间，程序可动态分配获得若干区块</p>
+<pre><code class="c++">{
+    Complex c1(1,2); 
+}
+</code></pre>
+<p>c1就是stack object，也叫auto object,生命随scope结束而结束，会被自动销毁  </p>
+<pre><code class="c++">{
+    static Complex c2(1,2);
+}
+</code></pre>
+<p>c2是static object,生命在scope结束后仍然存在，到整个程序结束  </p>
+<pre><code class="c++">Complex c3(1,2);
+int main { ... }
+</code></pre>
+<p>c3是gloabal object,其生命在整个程序结束才结束，可以将其看成staic object  </p>
+<p>new: 先分配memory,然后调用ctor<br>delete: 先调用dtor,然后释放memory  </p>
+<p>内存空间详解：<br><img src="/2018/05/10/C-学习笔记/选区_016.png" alt="分为调试情况下和一般情况下"></p>
+<pre><code class="c++">String* ps = new String(&quot;hello world&quot;);
+...
+delete ps;
+=&gt; 编译器转化成下面
+String::~String(ps); // 析构函数
+operator delete(ps); // 释放内存
+
+~String() {
+    delete[] m_data; // 删除指向的内存
+}
+</code></pre>
+<p>Note: <em>两个删除</em>,一个析够函数，另一个是delete(ps);<br>array new一定要搭配array delete,不然会发生如下的内存泄漏：<br><img src="/2018/05/10/C-学习笔记/选区_017.png" alt="array new内存泄漏"></p>
+<h3 id="类模板，函数模板以及其他"><a href="#类模板，函数模板以及其他" class="headerlink" title="类模板，函数模板以及其他"></a>类模板，函数模板以及其他</h3><p>static data member 只有一份，例如银行的利率对于每个人都是相同的<br>static member functions 没有this pointer,只能处理static data(如果处理数据的话)<br>Note: <em>static data member要定义</em>  </p>
+<pre><code class="c++">class Account {
+public:
+    static double m_rate;
+    static void set_rate(const double&amp; x) { m_rate = x; }
+}
+// class外定义，value 8.0不一定设
+double Account::m_rate = 8.0;
+</code></pre>
+<p>调用static函数的方式有二：  </p>
+<ol>
+<li>通过object调用</li>
+<li>通过class name调用</li>
+</ol>
+<p><em>Singleton</em>: 把ctor放private里，外界不会调用创建，但是本身有一个  </p>
+<pre><code class="c++">class A {
+public:
+    static A&amp; getInstance() { return a; }
+    setup() {}
+private:
+    A();
+    A(const A&amp; rhs);
+    static A a;
+    ...
+};
+</code></pre>
+<p>没人使用也会存在a,所以我们改进版本  </p>
+<pre><code class="c++">class A {
+public:
+    static A&amp; getInstance();
+    setup() { ... }
+private:
+    A();
+    A(const A&amp; rhs);
+    ... 
+};
+A&amp; A::getInstance() {
+    static A a;
+    return a;
+}
+</code></pre>
+<p>using namespace std;<br>using std::cout; </p>
+<h3 id="组合与继承"><a href="#组合与继承" class="headerlink" title="组合与继承"></a>组合与继承</h3><p><em>Composition(复合)，表示has-a</em><br>一个Composition的特殊的样例：Adapter<br><img src="/2018/05/10/C-学习笔记/选区_019.png" alt="Adapter"></p>
+<p>构造由内而外，析构由外而内</p>
+<p><em>Delegation(委托). Composition by reference</em>  </p>
+<pre><code class="c++">class String {
+private:
+    StringRep* rep;
+}
+class StringRep {
+}
+</code></pre>
+<p><em>Inheritance(继承)，表示is-a</em>  </p>
+<pre><code class="c++">struct _List_node_base {
+    _List_node_base* _M_next;
+    _List_node_base* _M_pre;
+};
+struct _List_node: public _List_node_base {
+    _Tp _M_data;
+}
+</code></pre>
+<p>none-virtual函数：不希望derived class重新定义(override)它<br>virtual函数：希望derived class重新定义它，且它已有默认定义<br>pure virtual: 希望derived class一定要重新定义它，你对它没有默认定义  </p>
+<h3 id="委托-Delegation-相关设计"><a href="#委托-Delegation-相关设计" class="headerlink" title="委托(Delegation)相关设计"></a>委托(Delegation)相关设计</h3><p><em>Delegation + Inheritance</em></p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a href="javascript:void(0)" class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+<div class="article_copyright">
+    <p><span>文章标题:</span>C++学习笔记(上)</p>
+    
+    <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
+    <p><span>发布时间:</span>2018-05-10, 14:21:17</p>
+    <p><span>最后更新:</span>2018-05-11, 23:11:03</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/05/10/C-学习笔记/" title="C++学习笔记(上)">http://simon-lu.me/2018/05/10/C-学习笔记/</a>
+    <p>
+        <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+    </p>
+</div>
+
+
     <div id="comments"></div>
 <link rel="stylesheet" href="/css/gitalk.css">
 
@@ -364,7 +604,7 @@
             repo: 'simon-lu.github.io',
             owner: 'simon-lu',
             admin: ['simon-lu'],
-            id: 'undefined',
+            id: 'Thu May 10 2018 14:21:17 GMT+0800',
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)
@@ -372,6 +612,10 @@
         gitalk.render('comments')
     })
 </script>
+
+
+
+    
 
     </div>
     <div class="copyright">
