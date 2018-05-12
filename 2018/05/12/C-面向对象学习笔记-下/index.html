@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ensemble的几种方式介绍 | lu&#39;s blog</title>
-  <meta name="keywords" content=" Ensemble ">
-  <meta name="description" content="Ensemble的几种方式介绍 | lu&#39;s blog">
+  <title>C++面向对象学习笔记(下) | lu&#39;s blog</title>
+  <meta name="keywords" content=" C/C++ ">
+  <meta name="description" content="C++面向对象学习笔记(下) | lu&#39;s blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="你来到了没有知识的荒原 :(">
 <meta property="og:type" content="website">
@@ -329,9 +329,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-Ensemble的几种方式介绍" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-C-面向对象学习笔记-下" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Ensemble的几种方式介绍</h1>
+        <h1 class="article-title">C++面向对象学习笔记(下)</h1>
     
     <div class="article-meta">
         
@@ -340,14 +340,14 @@
         
         <span class="tag">
             
-            <a href="javascript:" class="color4">Ensemble</a>
+            <a href="javascript:" class="color1">C/C++</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2018-04-18 16:09:45'>2018-04-04 15:28</time>
+        创建时间:<time class="date" title='更新时间: 2018-05-13 00:34:43'>2018-05-12 00:09</time>
         
     </div>
     <div class="article-meta">
@@ -380,7 +380,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Stacking"><span class="toc-text">Stacking</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bagging"><span class="toc-text">Bagging</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Random-Forest"><span class="toc-text">Random Forest</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AdaBoost"><span class="toc-text">AdaBoost</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#conversion-function"><span class="toc-text">conversion function</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#non-explicit-one-argument-ctor"><span class="toc-text">non-explicit-one-argument ctor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pointer-like-classes"><span class="toc-text">pointer-like classes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#function-like-classes"><span class="toc-text">function-like classes</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#specialization，模板特化"><span class="toc-text">specialization，模板特化</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -395,14 +395,63 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="Stacking"><a href="#Stacking" class="headerlink" title="Stacking"></a>Stacking</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Stacking.png" alt="Stacking"></p>
-<h4 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Bagging.png" alt="Bagging"></p>
-<p>一个复杂的模型常常会有large variace，所以我们会想有几个这样复杂的模型取平均来减少variance 这就要求我们对原始数据进行重新采样，对最后几个模型的得出来的结果采取取均值或者投票的方法。<br>当我们的模型很复杂、容易overfit的时候，Bagging很有效。</p>
-<h4 id="Random-Forest"><a href="#Random-Forest" class="headerlink" title="Random Forest"></a>Random Forest</h4><p><img src="/2018/04/04/Ensemble的几种方式介绍/Random_Forest.png" alt="Random Forest"></p>
-<p>有放回的抽样生成S个和原始数据集一样的大小数据集，分别记为T1,T2,…Ts,这些数据集合 称之为bootstrap数据集，对于每个Ti生成一个决策树，最终结果通过大多数投票策略来决定</p>
-<p><em>Out-of-bag error:</em><br>对于每一个记录(xi, yi)，都有不包含此记录的boostrap集合，把所有符合的bootstrap集合记为Tk， 所以共有N个这样的字集。 对于构建第k棵树时候没有用到的每条记录，让它们过一遍第k棵树，进而获得一个分类.通过这种方法, 对任何一条记录来说，大概有1/3的树没有用这条记录来构建，因而对这些树可以进行测试集上的数据分类。最终, 假设 类别j 是当记录n是oob时候，获得投票最多的类别，j被错误分类除以总记录数n，就是 oob error estimate.</p>
-<p>那么它为什么重要? Breiman [1996b]在对 bagged 分类器的错误率估计研究中, 给出实证证据显示，out-of-bag 估计 和使用与训练集大小一致的测试集所得到的错误率一样精确. 所以, 使用out-of-bag error 估计可以不在另外建立一个测试集。</p>
-<h4 id="AdaBoost"><a href="#AdaBoost" class="headerlink" title="AdaBoost"></a>AdaBoost</h4>
+        <h3 id="conversion-function"><a href="#conversion-function" class="headerlink" title="conversion function"></a>conversion function</h3><p><em>没有返回类型</em></p>
+<pre><code class="c++">class Fraction {
+public:
+// 要加const，分子和分母并不会改变
+// 由于已经有了double(),虽然是返回double类型，但是可以不写
+    operator double() const {
+        return (double)(m_numerator/m_denominator);
+    }
+private:
+    int m_numerator; // 分子
+    int m_denominator; // 分母
+}
+Fraction f(3,5);
+double d = 4 + f;
+</code></pre>
+<h3 id="non-explicit-one-argument-ctor"><a href="#non-explicit-one-argument-ctor" class="headerlink" title="non-explicit-one-argument ctor"></a>non-explicit-one-argument ctor</h3><pre><code class="c++">public:
+// 1个实参 
+    Fraction(int num, int den = 1) : m_numerator(num), m_denominator(den) {}
+    Fraction operator + (const Fraction&amp; f) {
+        return Fraction(...);
+    }
+Fraction f(3,5);
+Fraction d2 = f + 4; // 调用non-explicit ctor将4chang Fraction(4,1),然后调用operator +
+</code></pre>
+<p>当conversion function和non-explicit同时有的时候，Fraction d2 = f + 4；会报错！<br>编译器无法判断使用哪一个  </p>
+<p>当变成explicit Fraction():…,4就不会自动变成4/1<br>explicit 90%用到的时候是在构造函数前面</p>
+<h3 id="pointer-like-classes"><a href="#pointer-like-classes" class="headerlink" title="pointer-like classes"></a>pointer-like classes</h3><p>关于智能指针<br><em>-&gt;</em> 符号很特别，消耗过还会有</p>
+<p>关于迭代器<br>需要写出++，–等指针可以移动</p>
+<h3 id="function-like-classes"><a href="#function-like-classes" class="headerlink" title="function-like classes"></a>function-like classes</h3><p>function template, 函数模板<br>Note: 不必说明类型，使用时候编译器会进行实参推导</p>
+<p>member template， 成员模板  </p>
+<pre><code class="c++">pair&lt;Derived1, Derived2&gt; p;
+pair&lt;Base1, Base2&gt; p2(p);
+// 上面相当于=&gt;下式
+// 把一个由鲫鱼和麻雀构成的pair,放进一个由鱼类和鸟类构成的pair
+pair&lt;Base1, Base2&gt; p2(pair&lt;Derived1, Derived2&gt;());
+</code></pre>
+<h3 id="specialization，模板特化"><a href="#specialization，模板特化" class="headerlink" title="specialization，模板特化"></a>specialization，模板特化</h3><pre><code class="c++">template &lt;class Key&gt;
+struct hash {};
+
+template&lt;&gt;
+struct hash&lt;char&gt; {
+    size_t operator () (char x) const { return x; }
+};
+
+template&lt;&gt;
+struct hash&lt;int&gt; {
+    size_t operator () (int x) const { return x; }
+};
+
+template&lt;&gt;
+struct hash&lt;long&gt; {
+    size_t operator () (long x) const { return x; }
+};
+
+cout &lt;&lt; hash&lt;long&gt;()(1000);
+</code></pre>
+
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 wq.lu@outlook.com </span>
     </div>
@@ -415,12 +464,12 @@
 
 
 <div class="article_copyright">
-    <p><span>文章标题:</span>Ensemble的几种方式介绍</p>
+    <p><span>文章标题:</span>C++面向对象学习笔记(下)</p>
     
     <p><span>本文作者:</span><a href="javascript:void(0)" title="simonlu">simonlu</a></p>
-    <p><span>发布时间:</span>2018-04-04, 15:28:00</p>
-    <p><span>最后更新:</span>2018-04-18, 16:09:45</p>
-    <span>原始链接:</span><a class="post-url" href="/2018/04/04/Ensemble的几种方式介绍/" title="Ensemble的几种方式介绍">http://simon-lu.me/2018/04/04/Ensemble的几种方式介绍/</a>
+    <p><span>发布时间:</span>2018-05-12, 00:09:50</p>
+    <p><span>最后更新:</span>2018-05-13, 00:34:43</p>
+    <span>原始链接:</span><a class="post-url" href="/2018/05/12/C-面向对象学习笔记-下/" title="C++面向对象学习笔记(下)">http://simon-lu.me/2018/05/12/C-面向对象学习笔记-下/</a>
     <p>
         <span>版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
@@ -438,7 +487,7 @@
             repo: 'simon-lu.github.io',
             owner: 'simon-lu',
             admin: ['simon-lu'],
-            id: 'Wed Apr 04 2018 15:28:00 GMT+0800',
+            id: 'Sat May 12 2018 00:09:50 GMT+0800',
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)
