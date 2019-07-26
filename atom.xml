@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lu&#39;s Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="/"/>
+  <updated>2019-07-26T11:25:07.308Z</updated>
+  <id>/</id>
+  
+  <author>
+    <name>simonlu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2019/07/26/hello-world/"/>
+    <id>/2019/07/26/hello-world/</id>
+    <published>2019-07-26T11:25:07.308Z</published>
+    <updated>2019-07-26T11:25:07.308Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>如何使用GDB调试项目</title>
+    <link href="/2019/06/03/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8GDB%E8%B0%83%E8%AF%95%E9%A1%B9%E7%9B%AE/"/>
+    <id>/2019/06/03/如何使用GDB调试项目/</id>
+    <published>2019-06-03T06:51:25.000Z</published>
+    <updated>2019-07-24T17:54:28.402Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;-g 可在编译后的程序中保留调试符号信息&lt;br&gt;strip hello_server 移除程序中存在的调试信息，程序测试后没有问题，我们可以使用此命令减小程序体积&lt;br&gt;调试文件时建议关闭编译器优化选项，有可能会优化掉排查的对象&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+      <category term="GDB" scheme="/tags/GDB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux服务器端开发常用的命令</title>
+    <link href="/2019/05/18/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
+    <id>/2019/05/18/linux服务器端开发常用的命令/</id>
+    <published>2019-05-18T07:54:56.000Z</published>
+    <updated>2019-07-24T15:56:15.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;nc&quot;&gt;&lt;a href=&quot;#nc&quot; class=&quot;headerlink&quot; title=&quot;nc&quot;&gt;&lt;/a&gt;nc&lt;/h2&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;nc -v -p 9999 127.0.0.1
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【深度探索C++对象模型】读书笔记</title>
+    <link href="/2019/05/06/%E3%80%90%E6%B7%B1%E5%BA%A6%E6%8E%A2%E7%B4%A2C-%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E3%80%91%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <id>/2019/05/06/【深度探索C-对象模型】读书笔记/</id>
+    <published>2019-05-06T12:39:58.000Z</published>
+    <updated>2019-07-25T01:48:19.316Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;第一章-关于对象&quot;&gt;&lt;a href=&quot;#第一章-关于对象&quot; class=&quot;headerlink&quot; title=&quot;第一章 关于对象&quot;&gt;&lt;/a&gt;第一章 关于对象&lt;/h2&gt;&lt;p&gt;关于封装后的布局成本&lt;br&gt;封装后Point3d并没有增加成本，data
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LeetCode中遇到的问题</title>
+    <link href="/2019/03/11/%E8%B0%83%E8%AF%95LeetCode-107%E6%89%80%E5%BE%97%E5%88%B0%E7%9A%84%E6%95%99%E8%AE%AD/"/>
+    <id>/2019/03/11/调试LeetCode-107所得到的教训/</id>
+    <published>2019-03-10T17:19:45.000Z</published>
+    <updated>2019-07-24T17:59:46.664Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;LeetCode-107-vector的insert问题&quot;&gt;&lt;a href=&quot;#LeetCode-107-vector的insert问题&quot; class=&quot;headerlink&quot; title=&quot;LeetCode 107
+        
+      
+    
+    </summary>
+    
+    
+      <category term="LeetCode" scheme="/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="/2018/12/12/Hexo-Theme-Sakura%20-%20%E5%89%AF%E6%9C%AC/"/>
+    <id>/2018/12/12/Hexo-Theme-Sakura - 副本/</id>
+    <published>2018-12-12T14:16:01.000Z</published>
+    <updated>2019-06-01T14:21:46.000Z</updated>
+    
+    <summary type="html">
+    
+      hexo-sakura主题使用教程
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="/tags/web/"/>
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-Theme-Sakura</title>
+    <link href="/2018/12/12/Hexo-Theme-Sakura/"/>
+    <id>/2018/12/12/Hexo-Theme-Sakura/</id>
+    <published>2018-12-12T14:16:01.000Z</published>
+    <updated>2019-06-01T14:21:46.000Z</updated>
+    
+    <summary type="html">
+    
+      hexo-sakura主题使用教程
+    
+    </summary>
+    
+      <category term="技术" scheme="/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="web" scheme="/tags/web/"/>
+    
+      <category term="悦读" scheme="/tags/%E6%82%A6%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二维数组的创建</title>
+    <link href="/2018/09/09/%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9B%E5%BB%BA/"/>
+    <id>/2018/09/09/二维数组的创建/</id>
+    <published>2018-09-09T15:03:54.000Z</published>
+    <updated>2019-07-24T18:00:19.692Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近在刷oj在使用二维数组的时候老是出现一些失误，所以总结一下作为备忘录吧。&lt;/p&gt;
+&lt;h4 id=&quot;方法一&quot;&gt;&lt;a href=&quot;#方法一&quot; class=&quot;headerlink&quot; title=&quot;方法一&quot;&gt;&lt;/a&gt;方法一&lt;/h4&gt;&lt;pre&gt;&lt;code
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>美团后台开发电话面试</title>
+    <link href="/2018/08/29/%E7%BE%8E%E5%9B%A2%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95/"/>
+    <id>/2018/08/29/美团后台开发电话面试/</id>
+    <published>2018-08-29T15:56:00.000Z</published>
+    <updated>2019-03-10T02:31:12.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>一个远古的小游戏——贪吃蛇</title>
+    <link href="/2018/06/14/%E4%B8%80%E4%B8%AA%E8%BF%9C%E5%8F%A4%E7%9A%84%E5%B0%8F%E6%B8%B8%E6%88%8F%E2%80%94%E2%80%94%E8%B4%AA%E5%90%83%E8%9B%87/"/>
+    <id>/2018/06/14/一个远古的小游戏——贪吃蛇/</id>
+    <published>2018-06-13T16:08:05.000Z</published>
+    <updated>2019-03-10T02:31:12.000Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记一次大数据流量分析的实践</title>
+    <link href="/2018/06/05/%E8%AE%B0%E4%B8%80%E6%AC%A1%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90%E7%9A%84%E5%AE%9E%E8%B7%B5/"/>
+    <id>/2018/06/05/记一次大数据流量分析的实践/</id>
+    <published>2018-06-05T10:50:23.000Z</published>
+    <updated>2019-07-24T15:27:30.391Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;一、数据处理思路&quot;&gt;&lt;a href=&quot;#一、数据处理思路&quot; class=&quot;headerlink&quot; title=&quot;一、数据处理思路&quot;&gt;&lt;/a&gt;一、数据处理思路&lt;/h2&gt;&lt;h3 id=&quot;1-1-源文件的处理&quot;&gt;&lt;a href=&quot;#1-1-源文件的处理&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python" scheme="/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpaceVim个人配置</title>
+    <link href="/2018/05/22/vim%E4%B8%AA%E4%BA%BA%E9%85%8D%E7%BD%AE/"/>
+    <id>/2018/05/22/vim个人配置/</id>
+    <published>2018-05-22T10:39:21.000Z</published>
+    <updated>2019-07-24T15:28:45.362Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;使用SpaceVim及编译安装YouCompleteMe&quot;&gt;&lt;a href=&quot;#使用SpaceVim及编译安装YouCompleteMe&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="vim" scheme="/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ STL和泛型编程</title>
+    <link href="/2018/05/15/C-STL%E5%92%8C%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B/"/>
+    <id>/2018/05/15/C-STL和泛型编程/</id>
+    <published>2018-05-15T05:17:06.000Z</published>
+    <updated>2019-07-24T15:22:12.857Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;headers&quot;&gt;&lt;a href=&quot;#headers&quot; class=&quot;headerlink&quot; title=&quot;headers&quot;&gt;&lt;/a&gt;headers&lt;/h3&gt;&lt;p&gt;C++ Standard Library &amp;gt; Standard Template
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++面向对象学习笔记(下)</title>
+    <link href="/2018/05/12/C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E4%B8%8B/"/>
+    <id>/2018/05/12/C-面向对象学习笔记-下/</id>
+    <published>2018-05-11T16:09:50.000Z</published>
+    <updated>2019-07-24T17:59:02.202Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;conversion-function&quot;&gt;&lt;a href=&quot;#conversion-function&quot; class=&quot;headerlink&quot; title=&quot;conversion function&quot;&gt;&lt;/a&gt;conversion
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++面向对象学习笔记(上)</title>
+    <link href="/2018/05/10/C-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>/2018/05/10/C-学习笔记/</id>
+    <published>2018-05-10T06:21:17.000Z</published>
+    <updated>2019-07-24T15:39:48.515Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;推荐书籍&lt;br&gt;&lt;a href&gt;《C++ Primer》&lt;/a&gt;&lt;br&gt;&lt;a href&gt;《Effective C++》&lt;/a&gt;  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;头文件与类&quot;&gt;&lt;a href=&quot;#头文件与类&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="/tags/C-C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu下面的日常</title>
+    <link href="/2018/04/24/Ubuntu%E4%B8%8B%E9%9D%A2%E7%9A%84%E6%97%A5%E5%B8%B8/"/>
+    <id>/2018/04/24/Ubuntu下面的日常/</id>
+    <published>2018-04-24T08:32:24.000Z</published>
+    <updated>2019-07-24T15:46:24.915Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;软件图标&quot;&gt;&lt;a href=&quot;#软件图标&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C语言常考知识点</title>
+    <link href="/2018/04/20/C%E8%AF%AD%E8%A8%80%E5%B8%B8%E8%80%83%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <id>/2018/04/20/C语言常考知识点/</id>
+    <published>2018-04-20T11:49:56.000Z</published>
+    <updated>2019-07-24T15:49:27.755Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;实习经历&quot;&gt;&lt;a href=&quot;#实习经历&quot; class=&quot;headerlink&quot; title=&quot;实习经历&quot;&gt;&lt;/a&gt;实习经历&lt;/h2&gt;&lt;h3 id=&quot;define和const的区别&quot;&gt;&lt;a href=&quot;#define和const的区别&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="C/C++" scheme="/tags/C-C/"/>
+    
+      <category term="面试" scheme="/tags/%E9%9D%A2%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ensemble的几种方式介绍</title>
+    <link href="/2018/04/04/Ensemble%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D/"/>
+    <id>/2018/04/04/Ensemble的几种方式介绍/</id>
+    <published>2018-04-04T07:28:00.000Z</published>
+    <updated>2019-03-10T02:31:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;Stacking&quot;&gt;&lt;a href=&quot;#Stacking&quot; class=&quot;headerlink&quot; title=&quot;Stacking&quot;&gt;&lt;/a&gt;Stacking&lt;/h4&gt;&lt;p&gt;&lt;img
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Ensemble" scheme="/tags/Ensemble/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java知识点总结</title>
+    <link href="/2018/03/24/Java%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/"/>
+    <id>/2018/03/24/Java知识点总结/</id>
+    <published>2018-03-24T01:38:00.000Z</published>
+    <updated>2019-03-10T02:31:12.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;1-Integer和int区别&quot;&gt;&lt;a href=&quot;#1-Integer和int区别&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Java" scheme="/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于笔试题目的笔记</title>
+    <link href="/2018/03/23/%E5%85%B3%E4%BA%8E%E7%AC%94%E8%AF%95%E9%A2%98%E7%9B%AE%E7%9A%84%E7%AC%94%E8%AE%B0/"/>
+    <id>/2018/03/23/关于笔试题目的笔记/</id>
+    <published>2018-03-22T16:33:00.000Z</published>
+    <updated>2019-05-22T06:26:46.921Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="笔试" scheme="/tags/%E7%AC%94%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>
