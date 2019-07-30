@@ -570,6 +570,8 @@ function preBG () {
 $(document).ready(function () {
   var bgindex = Math.floor(Math.random() * bg.length)
   $('.centerbg').css('background-image', 'url("' + bg[bgindex] + '")')
+  // $('body').css('background-image', 'url("' + bg[bgindex] + '")')
+  // $('body').css('background-size', 'auto')
   $('#bg-next').click(function () {
     nextBG()
   })
