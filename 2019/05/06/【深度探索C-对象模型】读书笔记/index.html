@@ -384,14 +384,14 @@
       <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
+        <!-- 
           <header class="entry-header">
             <h1 class="entry-title">【深度探索C++对象模型】读书笔记</h1>
             <p class="entry-census">&nbsp;·&nbsp;2019-5-6&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
           </header>
-        
+         -->
         <div class="entry-content">
           <h2 id="第一章-关于对象"><a href="#第一章-关于对象" class="headerlink" title="第一章 关于对象"></a>第一章 关于对象</h2><p>关于封装后的布局成本<br>封装后Point3d并没有增加成本，data member直接内含在每一个class object中，member function不再object中，每一个non-inline member function只会诞生一个函数实例。每一个inline function则会在每一个使用者身上产生一个实例。</p>
 <p>C++的布局以及存取时间上的额外负担是由virtual引起的，主要是virtual function和virtual base class。</p>
