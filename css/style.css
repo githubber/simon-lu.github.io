@@ -1342,7 +1342,7 @@ a:hover,a:active {
     top:0
 }
 .site-header.is-homepage .lower-cantiner {
-    display:none
+    display:block
 }
 .site-header.is-homepage.yya .lower-cantiner {
     display:block
@@ -1361,8 +1361,8 @@ a:hover,a:active {
     top:0;
     z-index:9999
 }
-.site-header:hover {
-    background-color:#fff
+.site-header {
+    background:rgba(255,255,255,0);
 }
 .sabit {
     top:0;
@@ -1548,7 +1548,7 @@ a:hover,a:active {
     display:none;
     opacity:1;
     position:absolute;
-    background:#fff;
+    background:#000;
     padding:10px;
     top:46px;
     right:-13px;
