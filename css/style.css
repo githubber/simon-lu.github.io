@@ -107,8 +107,7 @@
     right:0;
     margin:0;
     z-index:98;
-    pointer-events:none;
-    text-shadow:0 0 1px #fff,0 0 10px #fff
+    pointer-events:none
 }
 .aplayer.aplayer-fixed .aplayer-lrc:after,.aplayer.aplayer-fixed .aplayer-lrc:before {
     display:none
@@ -4102,7 +4101,8 @@ li.feature-2 {
 .header-info p {
     margin:0;
     font-family:'Ubuntu',sans-serif;
-    font-weight:700
+    font-weight:700;
+    font-size: larger
 }
 .top-social {
     height:32px;
@@ -5792,8 +5792,7 @@ button.botui-actions-buttons-button {
     text-decoration-line:none
 }
 .logolink .sakurasono {
-    background-color:rgba(255,255,255,.5);
-    border-radius:5px;
+    background-color:rgba(0,0,0,0);
     color:#464646;
     height:auto;
     line-height:25px;
@@ -5804,8 +5803,7 @@ button.botui-actions-buttons-button {
     width:auto
 }
 .logolink a:hover .sakurasono {
-    background-color:orange;
-    color:#fff
+    color:orange
 }
 .logolink a:hover .shironeko,.logolink a:hover rt {
     color:orange
@@ -5823,8 +5821,7 @@ button.botui-actions-buttons-button {
     text-decoration-line:none
 }
 .logolink.moe-mashiro .sakurasono {
-    font-size:25px;
-    border-radius:9px;
+    font-size:28px;
     padding-bottom:2px;
     padding-top:5px
 }
