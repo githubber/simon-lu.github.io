@@ -484,6 +484,7 @@
 </ul>
 <p>ARP：地址解析协议，根据IP地址获取物理地址。</p>
 <p>滑动窗口</p>
+<p>ping命令：应用层协议</p>
 <h3 id="TCP和UDP的区别"><a href="#TCP和UDP的区别" class="headerlink" title="TCP和UDP的区别"></a>TCP和UDP的区别</h3><p>都属于传输层协议</p>
 <ol>
 <li>TCP是面向连接的，UDP是无连接的； </li>
@@ -512,7 +513,26 @@
 <p>常见的状态码：</p>
 <p>200 OK (客户端请求成功)、301（资源被永久转移到其他url）、302（临时跳转）、400 Bad Request（客户端请求有语法错误）、401 Unauthorized（请求未经授权）、404（请求资源不存在）、500（服务器内部发生错误）、503 Server Unavailable（服务器当前不能处理客户端请求，一段时间后可能恢复正常）</p>
 <p>由于HTTP存在一些问题，例如：<strong>请求信息明文传输</strong>、<strong>数据的完整性没有校验</strong>、<strong>没有验证对方的身份</strong>。为了解决上述问题，用到了HTTPS，一般理解为<strong>HTTP+SSL/TLS</strong>，通过SSL证书来验证服务器的身份，并为浏览器和服务器之间的通讯进行加密。</p>
-<h2 id="三、操作系统"><a href="#三、操作系统" class="headerlink" title="三、操作系统"></a>三、操作系统</h2><h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>IPC的通常有管道（包括命名管道和无名管道）、消息队列、信号量、共享存储、socket、streams等，其中socket和streams支持不同主机上的两个进程IPC。</p>
+<h3 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h3><h4 id="原理与区别"><a href="#原理与区别" class="headerlink" title="原理与区别"></a>原理与区别</h4><p>cookie采用的是<strong>客户端</strong>的会话状态的一种存储机制，它是服务器在本地机器上存储的小段文本或者是内存中的一段数据，并随每一个请求发送至同一服务器。</p>
+<p>session是一种<strong>服务器端</strong>的信息管理机制，它把这些信息已文件的新式存放在服务器的硬盘空间上（这是默认情况，也可以用memcache把这种数据放到内存里面），当客户端向服务器发出请求时，<strong>要求服务器端产生一个session</strong>，服务器会先检查一下，客户端的cookie里面<strong>有没有session_id，是否过期</strong>。如果有这样的session_id的话，服务器端会根据cookie里的session_id把服务器的session检索出来。如果没有则会重新建立一个。</p>
+<h4 id="如果禁用cookie，session也不能用了嘛？"><a href="#如果禁用cookie，session也不能用了嘛？" class="headerlink" title="如果禁用cookie，session也不能用了嘛？"></a>如果禁用cookie，session也不能用了嘛？</h4><p>可以使用，不过是通过其他方式获取session_id，比如可以跟在url的后面，或者以表单的形式提交到服务器端，从而使服务器端了解客户端的状态。</p>
+<h4 id="为什么说session比cookie更安全？"><a href="#为什么说session比cookie更安全？" class="headerlink" title="为什么说session比cookie更安全？"></a>为什么说session比cookie更安全？</h4><p>要想攻破session，得分两步：</p>
+<ol>
+<li>得到session_id。攻破cookie后，你要得到session_id，session_id是要有登录，或者启动session_start才会有，你不知道什么时候有人登录。</li>
+<li>取有效session_id。session_id是加密的，第二次session_start的时候，前一次的session_id就没有用了，session过期时session_id也会失效，想在短时间内攻破加密的session_id很难，session是针对某一次通信而言，会话结束session也就随着消失了。</li>
+</ol>
+<h2 id="三、操作系统"><a href="#三、操作系统" class="headerlink" title="三、操作系统"></a>三、操作系统</h2><h3 id="进程和线程的区别"><a href="#进程和线程的区别" class="headerlink" title="进程和线程的区别"></a>进程和线程的区别</h3><ul>
+<li>根本区别：进程是操作系统资源分配的基本单位，线程是任务调度和执行的基本单位。</li>
+<li>进程有自己的独立地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，这种操作十分昂贵。而线程是共享进程中的数据的，使用相同的地址空间，因此CPU切换一个线程的花费远比进程要小的多，同时创建一个线程的开销也比进程要小的多。</li>
+<li>线程之间的通信更方便，同一进程下的线程共享全局变量、静态变量等数据，而进程之间的通信需要以（IPC）进行。不过如何处理同步和互斥是编写多线程程序的难点。</li>
+<li>但是多进程程序更为健壮，多线程程序只要一个线程死掉，整个进程也死掉了，而一个进程死掉并不会对另外一个进程造成影响，因为进程有自己独立的地址空间。</li>
+</ul>
+<h3 id="进程切换"><a href="#进程切换" class="headerlink" title="进程切换"></a>进程切换</h3><ol>
+<li>切换页目录以使用新的地址空间</li>
+<li>切换内核栈和硬件上下文</li>
+</ol>
+<p>对于线程切换，第一步不需要做的，第二步是进程和线程切换都要做的。</p>
+<h3 id="进程间通信"><a href="#进程间通信" class="headerlink" title="进程间通信"></a>进程间通信</h3><p>IPC的通常有管道（包括命名管道和无名管道）、消息队列、信号量、共享存储、socket、streams等，其中socket和streams支持不同主机上的两个进程IPC。</p>
 <ol>
 <li>管道，常指无名管道，<strong>半双工</strong> ，只能用于具有<strong>亲缘关系</strong>的进程间的通信（父子进程和兄弟进程），pipe()。</li>
 <li>FIFO，也称为命名管道，可以在<strong>无关进程</strong>间交换数据， mkfifo()。</li>
@@ -526,6 +546,7 @@
 <li>信号机制</li>
 </ol>
 <p>线程间的通信目的主要是用于线程同步，所以线程没有像进程中的用于数据交换的通信机制。</p>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p><a href="https://www.cnblogs.com/ralap7/p/9184773.html" target="_blank" rel="noopener">待补充</a></p>
 <h3 id="Linux下有哪些信号"><a href="#Linux下有哪些信号" class="headerlink" title="Linux下有哪些信号"></a>Linux下有哪些信号</h3><ul>
 <li>SIGABRT（程序异常终止信号，abort函数产生该信号）</li>
 <li>SIGALRM（alarm函数超时时产生该信号，默认动作是程序终止）</li>
