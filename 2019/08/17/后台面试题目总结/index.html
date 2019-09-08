@@ -364,7 +364,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://static.2heng.xin/wp-content/uploads//2019/02/wallhaven-672007-1-1024x576.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(http://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -387,7 +387,7 @@
         <!-- 
           <header class="entry-header">
             <h1 class="entry-title">后台面试题目总结</h1>
-            <p class="entry-census">hojun&nbsp;·&nbsp;2019-8-17&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+            <p class="entry-census">&nbsp;·&nbsp;2019-8-17&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
 
             <hr>
           </header>
@@ -512,7 +512,7 @@
 </ul>
 <p>常见的状态码：</p>
 <p>200 OK (客户端请求成功)、301（资源被永久转移到其他url）、302（临时跳转）、400 Bad Request（客户端请求有语法错误）、401 Unauthorized（请求未经授权）、404（请求资源不存在）、500（服务器内部发生错误）、503 Server Unavailable（服务器当前不能处理客户端请求，一段时间后可能恢复正常）</p>
-<p>由于HTTP存在一些问题，例如：<strong>请求信息明文传输</strong>、<strong>数据的完整性没有校验</strong>、<strong>没有验证对方的身份</strong>。为了解决上述问题，用到了HTTPS，一般理解为<strong>HTTP+SSL/TLS</strong>，通过SSL证书来验证服务器的身份，并为浏览器和服务器之间的通讯进行加密。</p>
+<h4 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h4><p>由于HTTP存在一些问题，例如：<strong>请求信息明文传输</strong>、<strong>数据的完整性没有校验</strong>、<strong>没有验证对方的身份</strong>。为了解决上述问题，用到了HTTPS，一般理解为<strong>HTTP+SSL/TLS</strong>，通过SSL证书来验证服务器的身份，并为浏览器和服务器之间的通讯进行加密。</p>
 <h3 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h3><h4 id="原理与区别"><a href="#原理与区别" class="headerlink" title="原理与区别"></a>原理与区别</h4><p>cookie采用的是<strong>客户端</strong>的会话状态的一种存储机制，它是服务器在本地机器上存储的小段文本或者是内存中的一段数据，并随每一个请求发送至同一服务器。</p>
 <p>session是一种<strong>服务器端</strong>的信息管理机制，它把这些信息已文件的新式存放在服务器的硬盘空间上（这是默认情况，也可以用memcache把这种数据放到内存里面），当客户端向服务器发出请求时，<strong>要求服务器端产生一个session</strong>，服务器会先检查一下，客户端的cookie里面<strong>有没有session_id，是否过期</strong>。如果有这样的session_id的话，服务器端会根据cookie里的session_id把服务器的session检索出来。如果没有则会重新建立一个。</p>
 <h4 id="如果禁用cookie，session也不能用了嘛？"><a href="#如果禁用cookie，session也不能用了嘛？" class="headerlink" title="如果禁用cookie，session也不能用了嘛？"></a>如果禁用cookie，session也不能用了嘛？</h4><p>可以使用，不过是通过其他方式获取session_id，比如可以跟在url的后面，或者以表单的形式提交到服务器端，从而使服务器端了解客户端的状态。</p>
@@ -600,7 +600,7 @@ int partition(vector&lt;int&gt; &amp;arr, int low, int high) {
 <h3 id="智力题目"><a href="#智力题目" class="headerlink" title="智力题目"></a>智力题目</h3><h4 id="100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次"><a href="#100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次" class="headerlink" title="100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次"></a>100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次</h4><p>(X+1)*X/2 &gt; 100</p>
 <h4 id="如何用数组实现链表功能"><a href="#如何用数组实现链表功能" class="headerlink" title="如何用数组实现链表功能"></a>如何用数组实现链表功能</h4><p>数组中存放一个结构体，一个表示数据，另外一个表示其下一个节点在数组中的index，以便快速插入删除。</p>
 <h4 id="找第一个出现一次的字符"><a href="#找第一个出现一次的字符" class="headerlink" title="找第一个出现一次的字符"></a>找第一个出现一次的字符</h4><p>建一个26大小的数组统计出现字符的次数，然后去找第一个出现结果为1的字符</p>
-
+<h3 id="10亿个url浏览记录，寻找出现次数最多的那个？"><a href="#10亿个url浏览记录，寻找出现次数最多的那个？" class="headerlink" title="10亿个url浏览记录，寻找出现次数最多的那个？"></a>10亿个url浏览记录，寻找出现次数最多的那个？</h3>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">
