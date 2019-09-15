@@ -405,6 +405,11 @@
 <li>可以通过类名来访问静态成员(需要访问权限public)<br>静态成员是属于类的，不属于某个对象，即使没有对象存在，类的静态成员也存在了，因此<strong>静态成员</strong>除了能和不同成员一样通过对象访问外，也<strong>可以通过类名访问，形式为 类名::成员名</strong>。</li>
 <li>静态成员函数不能访问类的非静态成员<br>这是由于类的非静态成员必须在类实例化对象后才有内存空间。</li>
 </ol>
+<h3 id="static声明的函数是否可以在其他文件中调用？"><a href="#static声明的函数是否可以在其他文件中调用？" class="headerlink" title="static声明的函数是否可以在其他文件中调用？"></a>static声明的函数是否可以在其他文件中调用？</h3><p>不可以被其他文件直接调用，但是可以用间接的方式</p>
+<ol>
+<li>通过函数指针的方式</li>
+<li>通过非static的方式，定义一个普通的函数，让这个函数调用static函数，然后把这个不同函数在头文件中声明</li>
+</ol>
 <h3 id="const关键字"><a href="#const关键字" class="headerlink" title="const关键字"></a>const关键字</h3><ol>
 <li>定义的时候必须进行初始化。 </li>
 <li>指针可以是const指针，也可以是指向const对象的指针。 </li>
@@ -466,6 +471,71 @@
 </ol>
 <h3 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h3><p>重载：同一个类中的函数具有相同的名称，但是参数的列表不相同</p>
 <p>重写：也叫覆盖，子类重新定义父类中有相同名称或者参数的虚函数，主要在继承关系中出现。</p>
+<h3 id="哪些函数不能声明为虚函数？"><a href="#哪些函数不能声明为虚函数？" class="headerlink" title="哪些函数不能声明为虚函数？"></a>哪些函数不能声明为虚函数？</h3><p>普通函数(非成员函数)、静态成员函数、内联成员函数、构造函数、友元函数</p>
+<h3 id="C-虚函数表、虚表指针和内存分布"><a href="#C-虚函数表、虚表指针和内存分布" class="headerlink" title="C++虚函数表、虚表指针和内存分布"></a>C++虚函数表、虚表指针和内存分布</h3><p><a href="https://blog.csdn.net/li1914309758/article/details/79916414" target="_blank" rel="noopener">C++虚函数表、虚表指针和内存分布</a></p>
+<h3 id="C-11的新特性"><a href="#C-11的新特性" class="headerlink" title="C++11的新特性"></a>C++11的新特性</h3><ol>
+<li>“语法糖”：nullptr,auto自动类型推导，范围for循环，初始化列表，lambda表达式等</li>
+<li>右值引用和移动语义</li>
+<li>智能指针</li>
+<li>C++11多线程编程：thread库及其配套的同步原语mutex、lock_guard、condition_variable以及异步的std::furture</li>
+</ol>
+<p>参考文章：<a href="https://www.jianshu.com/p/78c700c8d72d" target="_blank" rel="noopener">C++11新特性梳理</a></p>
+<h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>shared_ptr的实现：</p>
+<pre><code class="c++">template &lt;typename T&gt;
+class SmartPointer {
+private:
+    T *_ptr;
+    size_t *_count;
+public:
+    SmartPointer(T *ptr = nullptr) : _ptr(ptr) {
+        if (_ptr) {
+            _count = new size_t(1);
+        } else {
+            _count = new size_t(0);
+        }
+    }
+    SmartPointer(const SmartPointer &amp;src) {
+        if (this != &amp;src) {
+            this-&gt;_ptr = src._ptr;
+            this-&gt;_count = src._count;
+            (*this-&gt;count)++;
+        }
+    }
+    SmartPointer&amp; operator=(const SmartPointer &amp;src) {
+        if (this-&gt;_ptr == src._ptr) {
+            return *this;
+        }
+        if (this-&gt;_ptr) {
+            (*this-&gt;_count)--;
+            if (*this-&gt;_count  == 0) {
+                delete this-&gt;_ptr;
+                delete this-&gt;_count; // 释放堆内容
+            }
+        }
+        this-&gt;_ptr = src._ptr;
+        this-&gt;_count = src._count;
+        (*this-&gt;_count)++;
+    }
+    T&amp; operator*() {
+        assert(this-&gt;_ptr == nullptr);
+        return *this-&gt;_ptr;
+    }
+    T* operator-&gt;() {
+        assert(this-&gt;_ptr == nullptr);
+        return *this-&gt;_ptr;
+    }
+    ~SmartPointer() {
+        (*this-&gt;_count)--;
+        if (*this-&gt;_count == 0) {
+            delete this-&gt;_ptr;
+            delete this-&gt;_count;
+        }
+    }
+    size_t use_count() {
+        return *this-&gt;_count;
+    }
+};
+</code></pre>
 <h2 id="二、计算机网络"><a href="#二、计算机网络" class="headerlink" title="二、计算机网络"></a>二、计算机网络</h2><h3 id="OSI模型和TCP-IP模型"><a href="#OSI模型和TCP-IP模型" class="headerlink" title="OSI模型和TCP/IP模型"></a>OSI模型和TCP/IP模型</h3><p>OSI七层模型及其包含的协议：</p>
 <ol>
 <li>物理层：通过媒介传输比特，确定机械及电气规范，传输单位为bit，主要协议：IEEE802.3</li>
@@ -538,6 +608,21 @@
 </ol>
 <h5 id="HTTPS的优缺点："><a href="#HTTPS的优缺点：" class="headerlink" title="HTTPS的优缺点："></a>HTTPS的优缺点：</h5><p>优点：1.传输过程中使用密钥加密，更安全<br>     2.可以认证用户和服务器，确保数据发送到正确的用户和服务器</p>
 <p>缺点：1.握手阶段延时较高：由于在进行HTTP会话前还需要进行SSL握手，因此HTTPS协议握手阶段延时增加<br>     2.部署成本高：需要购买证书；加解密计算占用CPU资源较多，需要的服务器配置和数目高</p>
+<h5 id="HTTPS通信过程"><a href="#HTTPS通信过程" class="headerlink" title="HTTPS通信过程"></a>HTTPS通信过程</h5><p>HTTPS在真正请求数据时，先会与服务器有几次握手验证，以验明相互的身份，如下图：</p>
+<p><img src="HTTPS通信过程.png" alt="HTTPS通信过程"></p>
+<p>验证流程：</p>
+<ol>
+<li>客户端发起一个https的请求，把自身支持的一系列Cilpher(密钥算法套件)发送给服务器</li>
+<li>服务器接收到客户端所有的Clipher后与自身支持的对比，如果不支持就断开连接，反之则会从中选出一种<strong>加密算法和Hash算法</strong>以<strong>证书</strong>的形式返回给客户端，证书中还包含了公钥、颁证机构、网址、失效日期等</li>
+<li>客户端收到服务器响应后，会做以下几件事：<ol>
+<li>验证证书的合法性</li>
+<li>生成随机密码，然后用证书中的公钥加密</li>
+<li>把握手消息取Hash值，然后用<strong>随机数加密</strong>“握手消息+握手消息Hash值(签名)”发给服务器（保证握手消息传输过程中没有被篡改），最后把之前生成的信息发送给服务器</li>
+<li>服务器拿到密文，用自己的私钥解密握手消息取出随机数，再用随机数密码 解密 握手消息与Hash值，并与传输过来的Hash值对比。然后，用随机密码加密一段握手消息(握手消息+握手消息Hash值)给客户端</li>
+<li>客户端用随机数解密并计算握手消息的Hash值，比对一致，握手过程结束。之后所有的通信数据紧挨给由随机密码并利用对称加密算法进行加密</li>
+</ol>
+</li>
+</ol>
 <h3 id="Cookie和Session"><a href="#Cookie和Session" class="headerlink" title="Cookie和Session"></a>Cookie和Session</h3><h4 id="原理与区别"><a href="#原理与区别" class="headerlink" title="原理与区别"></a>原理与区别</h4><p>cookie采用的是<strong>客户端</strong>的会话状态的一种存储机制，它是服务器在本地机器上存储的小段文本或者是内存中的一段数据，并随每一个请求发送至同一服务器。注：cookie由服务器生成，通过response响应头的set-Cookie字段进行设置，包含用户id、密码、浏览过的网页、停留时间等，内容进行了加密。</p>
 <p>session是一种<strong>服务器端</strong>的信息管理机制，它把这些信息已文件的新式存放在服务器的硬盘空间上（这是默认情况，也可以用memcache把这种数据放到内存里面），当客户端向服务器发出请求时，<strong>要求服务器端产生一个session</strong>，服务器会先检查一下，客户端的cookie里面<strong>有没有session_id，是否过期</strong>。如果有这样的session_id的话，服务器端会根据cookie里的session_id把服务器的session检索出来。如果没有则会重新建立一个。</p>
 <h4 id="如果禁用cookie，session也不能用了嘛？"><a href="#如果禁用cookie，session也不能用了嘛？" class="headerlink" title="如果禁用cookie，session也不能用了嘛？"></a>如果禁用cookie，session也不能用了嘛？</h4><p>可以使用，不过是通过其他方式获取session_id，比如可以跟在url的后面，或者以表单的形式提交到服务器端，从而使服务器端了解客户端的状态。</p>
