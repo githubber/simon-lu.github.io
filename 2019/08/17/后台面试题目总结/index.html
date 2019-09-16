@@ -480,6 +480,14 @@
 <li>C++11多线程编程：thread库及其配套的同步原语mutex、lock_guard、condition_variable以及异步的std::furture</li>
 </ol>
 <p>参考文章：<a href="https://www.jianshu.com/p/78c700c8d72d" target="_blank" rel="noopener">C++11新特性梳理</a></p>
+<h3 id="右值引用和移动语义"><a href="#右值引用和移动语义" class="headerlink" title="右值引用和移动语义"></a>右值引用和移动语义</h3><p>左值是指表达式结束后依然存在的持久化对象，右值是指表达式结束后就不在存在的<strong>临时对象</strong>。</p>
+<p>区分它们的便捷方法：看能不能表达式取地址，如果能，则为左值，否则为右值</p>
+<p>如果能直接使用临时对象已经申请的资源，既能节省资源，又能结束节省资源申请和释放的时间，C++11移动语义可以实现这一点。</p>
+<p>要实现移动语义，要增加两个函数：移动构造函数和移动赋值函数</p>
+<p>拷贝构造的参数<strong>常量左值引用</strong>，移动构造的参数是<strong>右值引用</strong>，它不是重新分配一块空间，将要拷贝的对象复制过来，而是“偷”过来，将自己的指针指向别人的资源，然后将别人的指针修改为nullptr。</p>
+<p>对于一个左值，肯定是调用拷贝构造函数，但是有些左值是局部变量，生命周期短，能不能也移动而不是拷贝？C++11 std::move()方法来将左值转换成右值，从而方便应用移动语义。其实可以理解为告诉编译器，虽然我是一个左值，但是不要对我用拷贝构造函数，而是使用移动构造函数</p>
+<p><strong>完美转发</strong>：通过一个函数将将参数继续转交给另一个函数处理，原参数可能是右值，也可能是左值，如果还能继续保持参数的原有特征，那么它就是完美的。通常使用<strong>std::forward()函数模板</strong>和<strong>universal references</strong>通用引用类型来实现完美转发。</p>
+<p>具体参看:<a href="https://www.jianshu.com/p/d19fc8447eaa" target="_blank" rel="noopener">[c++11]我理解的右值引用、移动语义和完美转发</a></p>
 <h3 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h3><p>shared_ptr的实现：</p>
 <pre><code class="c++">template &lt;typename T&gt;
 class SmartPointer {
@@ -692,7 +700,7 @@ public:
 <p>用户级限制：修改/etc/security/limit.conf实现对用户的限制</p>
 <p>系统级限制：修改/proc/sys/fs/file-max</p>
 <p>与内存的大小有关</p>
-<h2 id="四、数据库"><a href="#四、数据库" class="headerlink" title="四、数据库"></a>四、数据库</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><p>第一范式(1NF)：要求数据库表的每一列都是不可分割的原子数据项</p>
+<h3 id="关于死锁"><a href="#关于死锁" class="headerlink" title="关于死锁"></a>关于死锁</h3><h2 id="四、数据库"><a href="#四、数据库" class="headerlink" title="四、数据库"></a>四、数据库</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><p>第一范式(1NF)：要求数据库表的每一列都是不可分割的原子数据项</p>
 <p>第二范式(2NF)：在1NF的基础上，必须有主键，没有包含主键的列必须完全依赖于主键</p>
 <p>第三范式(3NF)：在2NF的基础上，非主键列必须直接依赖于主键，不能传递依赖（消除了传递依赖）</p>
 <h2 id="五、算法与数据结构-智力题目"><a href="#五、算法与数据结构-智力题目" class="headerlink" title="五、算法与数据结构/智力题目"></a>五、算法与数据结构/智力题目</h2><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><pre><code class="c++">void quick_sort(vector&lt;int&gt; &amp;arr, int low, int high) {
