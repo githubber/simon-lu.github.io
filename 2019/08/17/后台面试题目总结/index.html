@@ -128,16 +128,6 @@
       </div>
     </div>
   </figure>
-  <div id="video-container" style="">
-    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
-    </video>
-    <div id="video-btn" class="loadvideo videolive">
-    </div>
-    <div id="video-add">
-    </div>
-    <div class="video-stu">
-    </div>
-  </div>
   <div class="headertop-down faa-float animated" onclick="headertop_down()">
     <span>
       <i class="fa fa-chevron-down" aria-hidden="true">
@@ -418,6 +408,9 @@
 <li>类的成员函数可以返回的是常对象，即被const声明的对象。 </li>
 <li>类的成员变量是常成员变量，不能在声明时初始化，必须在构造函数的列表进行初始化。<br> 只读的性质由编译器赋予，人为修改编译不通过</li>
 </ol>
+<h3 id="“extern-C”"><a href="#“extern-C”" class="headerlink" title="“extern C”"></a>“extern C”</h3><p>作为C语言的扩展，C++保留了一部分过程式语言的特点，因为它可以定义不属于任何类的全局变量和函数。但是，C++毕竟是一种面向对象的设计语言，为了支持函数的重载，C++对全局函数的处理有着明显的不同。</p>
+<p>函数在被C++编译后在符号库中的名字与C语言的不同，加入某个函数的原型是void foo(int x, int y);该函数被C编译器编译后在符号库中的名字是_foo，而C++编译器则会产生_foo_int_int之类的名字，C++就是靠这种机制来实现函数重载的。</p>
+<p>被“extern C”修饰的函数或者变量是按照C语言方式编译和链接的，概括来说真实目的就是：实现C++和C的混合编程。</p>
 <h3 id="memcpy的写法"><a href="#memcpy的写法" class="headerlink" title="memcpy的写法"></a>memcpy的写法</h3><p>版本一：未考虑地址重叠的情况</p>
 <pre><code class="c++">void *memcpy(void *dest, void *src, int count) {
     void *ptr = dest;
@@ -469,8 +462,9 @@
 <li>链地址法（拉链法）– 将所有冲突的关键字存储在一个线性链表中</li>
 <li>开放地址法 – 通常有三种：线性探测(x+1,x+2…)、二次探测(x+1,x+4,x+9)、再哈希法(用不同的哈希函数再做一次哈希化，用这个结果作为步长)</li>
 </ol>
-<h3 id="重载和重写"><a href="#重载和重写" class="headerlink" title="重载和重写"></a>重载和重写</h3><p>重载：同一个类中的函数具有相同的名称，但是参数的列表不相同</p>
+<h3 id="重载、重写和重定义"><a href="#重载、重写和重定义" class="headerlink" title="重载、重写和重定义"></a>重载、重写和重定义</h3><p>重载：同一个类中的函数具有相同的名称，但是参数的列表不相同</p>
 <p>重写：也叫覆盖，子类重新定义父类中有相同名称或者参数的虚函数，主要在继承关系中出现。</p>
+<p>重定义：派生类对基类函数的重定义，派生类函数名和基类某函数同名。（参数列表、函数返回值无要求）。特殊情况，如果是虚函数，且（名字、参数列表、返回值）完全一样，属于重写。</p>
 <h3 id="哪些函数不能声明为虚函数？"><a href="#哪些函数不能声明为虚函数？" class="headerlink" title="哪些函数不能声明为虚函数？"></a>哪些函数不能声明为虚函数？</h3><p>普通函数(非成员函数)、静态成员函数、内联成员函数、构造函数、友元函数</p>
 <h3 id="C-虚函数表、虚表指针和内存分布"><a href="#C-虚函数表、虚表指针和内存分布" class="headerlink" title="C++虚函数表、虚表指针和内存分布"></a>C++虚函数表、虚表指针和内存分布</h3><p><a href="https://blog.csdn.net/li1914309758/article/details/79916414" target="_blank" rel="noopener">C++虚函数表、虚表指针和内存分布</a></p>
 <h3 id="C-11的新特性"><a href="#C-11的新特性" class="headerlink" title="C++11的新特性"></a>C++11的新特性</h3><ol>
@@ -700,9 +694,17 @@ public:
 <p>用户级限制：修改/etc/security/limit.conf实现对用户的限制</p>
 <p>系统级限制：修改/proc/sys/fs/file-max</p>
 <p>与内存的大小有关</p>
-<h3 id="关于死锁"><a href="#关于死锁" class="headerlink" title="关于死锁"></a>关于死锁</h3><h2 id="四、数据库"><a href="#四、数据库" class="headerlink" title="四、数据库"></a>四、数据库</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><p>第一范式(1NF)：要求数据库表的每一列都是不可分割的原子数据项</p>
+<h3 id="关于死锁"><a href="#关于死锁" class="headerlink" title="关于死锁"></a>关于死锁</h3><h4 id="死锁产生的四个必要条件"><a href="#死锁产生的四个必要条件" class="headerlink" title="死锁产生的四个必要条件"></a>死锁产生的四个必要条件</h4><ol>
+<li>互斥条件</li>
+<li>不可剥夺条件</li>
+<li>请求和保持条件</li>
+<li>循环等待条件</li>
+</ol>
+<h4 id="破坏死锁"><a href="#破坏死锁" class="headerlink" title="破坏死锁"></a>破坏死锁</h4><p>通过破坏四个必要条件来破坏死锁</p>
+<h3 id="Linux基本命令"><a href="#Linux基本命令" class="headerlink" title="Linux基本命令"></a>Linux基本命令</h3><p>查看可执行文件ELF  readelf、objdump(反汇编)</p>
+<h2 id="四、数据库"><a href="#四、数据库" class="headerlink" title="四、数据库"></a>四、数据库</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><p>第一范式(1NF)：要求数据库表的每一列都是不可分割的原子数据项</p>
 <p>第二范式(2NF)：在1NF的基础上，必须有主键，没有包含主键的列必须完全依赖于主键</p>
-<p>第三范式(3NF)：在2NF的基础上，非主键列必须直接依赖于主键，不能传递依赖（消除了传递依赖）</p>
+<p>第三范式(3NF)：在2NF的基础上，非主键列必须直接依赖于主键，不能传递依赖（消除了传递依赖） </p>
 <h2 id="五、算法与数据结构-智力题目"><a href="#五、算法与数据结构-智力题目" class="headerlink" title="五、算法与数据结构/智力题目"></a>五、算法与数据结构/智力题目</h2><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><pre><code class="c++">void quick_sort(vector&lt;int&gt; &amp;arr, int low, int high) {
     if (low &lt; high) {
         int index = partition(arr, low, high);
@@ -730,7 +732,7 @@ int partition(vector&lt;int&gt; &amp;arr, int low, int high) {
 <h3 id="智力题目"><a href="#智力题目" class="headerlink" title="智力题目"></a>智力题目</h3><h4 id="100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次"><a href="#100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次" class="headerlink" title="100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次"></a>100层楼，有两个鸡蛋，有唯一一层从该楼层以及以下楼层鸡蛋不会碎，最快需要多少次</h4><p>(X+1)*X/2 &gt; 100</p>
 <h4 id="如何用数组实现链表功能"><a href="#如何用数组实现链表功能" class="headerlink" title="如何用数组实现链表功能"></a>如何用数组实现链表功能</h4><p>数组中存放一个结构体，一个表示数据，另外一个表示其下一个节点在数组中的index，以便快速插入删除。</p>
 <h4 id="找第一个出现一次的字符"><a href="#找第一个出现一次的字符" class="headerlink" title="找第一个出现一次的字符"></a>找第一个出现一次的字符</h4><p>建一个26大小的数组统计出现字符的次数，然后去找第一个出现结果为1的字符</p>
-<h3 id="10亿个url浏览记录，寻找出现次数最多的那个？"><a href="#10亿个url浏览记录，寻找出现次数最多的那个？" class="headerlink" title="10亿个url浏览记录，寻找出现次数最多的那个？"></a>10亿个url浏览记录，寻找出现次数最多的那个？</h3>
+<h4 id="10亿个url浏览记录，寻找出现次数最多的那个？"><a href="#10亿个url浏览记录，寻找出现次数最多的那个？" class="headerlink" title="10亿个url浏览记录，寻找出现次数最多的那个？"></a>10亿个url浏览记录，寻找出现次数最多的那个？</h4><h4 id="两组20亿数据求交集，4G内存？"><a href="#两组20亿数据求交集，4G内存？" class="headerlink" title="两组20亿数据求交集，4G内存？"></a>两组20亿数据求交集，4G内存？</h4>
         </div>
         <!-- .entry-content -->
         <div class="single-reward">

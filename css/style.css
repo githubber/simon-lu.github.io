@@ -1475,7 +1475,7 @@ a:hover,a:active {
 .site-top ul li a {
     padding:10px 0;
     display:inline-block;
-    color:#666
+    color:grey
 }
 .site-top ul li a:hover {
     color:orange
@@ -5793,7 +5793,7 @@ button.botui-actions-buttons-button {
 }
 .logolink .sakurasono {
     background-color:rgba(0,0,0,0);
-    color:#464646;
+    color:grey;
     height:auto;
     line-height:25px;
     margin-right:0;
@@ -5809,7 +5809,7 @@ button.botui-actions-buttons-button {
     color:orange
 }
 .logolink.moe-mashiro a {
-    color:#464646;
+    color:grey;
     float:left;
     font-size:28px;
     font-weight:800;
