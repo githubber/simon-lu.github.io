@@ -354,7 +354,7 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(http://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
@@ -705,6 +705,18 @@ public:
 <h2 id="四、数据库"><a href="#四、数据库" class="headerlink" title="四、数据库"></a>四、数据库</h2><h3 id="三范式"><a href="#三范式" class="headerlink" title="三范式"></a>三范式</h3><p>第一范式(1NF)：要求数据库表的每一列都是不可分割的原子数据项</p>
 <p>第二范式(2NF)：在1NF的基础上，必须有主键，没有包含主键的列必须完全依赖于主键</p>
 <p>第三范式(3NF)：在2NF的基础上，非主键列必须直接依赖于主键，不能传递依赖（消除了传递依赖） </p>
+<h3 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h3><ul>
+<li>只返回所需要的数据<ul>
+<li>尽量不要写<code>select</code>的语句</li>
+<li>合理写<code>where</code>子句，不要写没有where的语句</li>
+<li>适当建立索引，但以下几点会进行全表扫描<ul>
+<li>左模糊查询<code>%...</code></li>
+<li>使用不等操作符</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="五、算法与数据结构-智力题目"><a href="#五、算法与数据结构-智力题目" class="headerlink" title="五、算法与数据结构/智力题目"></a>五、算法与数据结构/智力题目</h2><h3 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h3><h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><pre><code class="c++">void quick_sort(vector&lt;int&gt; &amp;arr, int low, int high) {
     if (low &lt; high) {
         int index = partition(arr, low, high);
@@ -765,7 +777,7 @@ int partition(vector&lt;int&gt; &amp;arr, int low, int high) {
           
             <a href="/2019/06/03/如何使用GDB调试项目/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="http://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://r.photo.store.qq.com/psb?/V10cLlav0ErH57/7YOoyXKr7n2UPKVgo7ihcnIvn3w*fUKT5J3H8WI7wRI!/r/dE0BAAAAAAAA" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
               </div>
               <span class="label">
               Next Post</span>
