@@ -1246,7 +1246,7 @@ var home = location.href,
           $('.headertop').css({
             'height': 'auto'
           }).show()
-          if (Poi.movies.live == 'open') Siren.liveplay()
+          if (Poi.movies.live == 'open') // Siren.liveplay()
           $('.site-header').addClass('is-homepage')
         } else {
           $('.blank').css({
@@ -1255,7 +1255,7 @@ var home = location.href,
           $('.headertop').css({
             'height': '0px'
           }).hide()
-          Siren.livepause()
+          // Siren.livepause()
         }
       }
     }, CE: function () {
